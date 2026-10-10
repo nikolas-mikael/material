@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Unit 4 · The Perfect Family · SMK Katolik St. Mikael</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F2FB;--paper:#FFFFFF;--ink:#1F1630;--muted:#65597A;--lav:#F2ECFA;--lav2:#E6DAF5;
+  --plum:#4A1A7A;--plum-deep:#2B0F4A;--plum-ink:#4A1A7A;--red:#C62033;--red-ink:#B01A2C;--green:#1B7F52;
+  --aux-bg:#FCE6E9;--vf-bg:#ECE2F8;--ok:#1B7F52;--ok-bg:#E2F4EA;--bad:#B01A2C;--bad-bg:#FCE6E9;--line:#DCD2EA;
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"Atkinson Hyperlegible","Segoe UI",system-ui,-apple-system,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{--bg:#120820;--paper:#1B1328;--ink:#F1EAFB;--muted:#B7A9CC;--lav:#281C3A;--lav2:#342549;--plum-ink:#CFB3F6;--red-ink:#FF8E99;
+    --aux-bg:#44141D;--vf-bg:#352352;--ok:#72D8A6;--ok-bg:#15372A;--bad:#FF8E99;--bad-bg:#44141D;--line:#3D2E55}
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased}
+button{font:inherit;cursor:pointer;color:inherit}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+h1,h2,h3,h4{font-family:var(--display);margin:0;letter-spacing:-.015em;line-height:1.12}
+p{margin:0}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+
+.top{background:var(--plum-deep);color:#fff;padding:34px 0 26px}
+.kicker{font-size:15px;color:#D9C8F2;font-weight:700;letter-spacing:.02em}
+.top h1{font-size:clamp(40px,6vw,66px);font-weight:800;margin-top:10px}
+.top h1 span{color:#F7A9B2}
+.top .sub{color:#D9C8F2;margin-top:12px;max-width:64ch}
+.tabbar{position:sticky;top:0;z-index:15;background:var(--plum-deep);border-top:1px solid rgba(255,255,255,.1);box-shadow:0 6px 18px rgba(0,0,0,.2)}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:10px 0;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;border:none;background:rgba(255,255,255,.08);color:#fff;border-radius:999px;padding:9px 18px;font-weight:700;font-size:16px;display:flex;align-items:center;gap:8px}
+.tab.lk::after{content:"🔒";font-size:13px}
+.tab[aria-selected="true"]{background:#fff;color:var(--plum)}
+
+.page{display:none;padding:30px 0 70px}
+.page.active{display:block}
+.pagehead{display:flex;gap:20px;align-items:flex-start}
+.pnum{font-family:var(--display);font-weight:800;font-size:76px;line-height:.82;color:var(--red)}
+.pagehead h2{font-size:clamp(28px,4vw,40px);color:var(--plum-ink)}
+.lede{color:var(--muted);margin-top:8px;font-size:19px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:24px 26px;margin-top:18px}
+.card h3{font-size:22px;color:var(--plum-ink);margin-bottom:10px}
+.card h4{font-size:18px;color:var(--plum-ink);margin:18px 0 8px}
+.sec{display:flex;align-items:center;gap:12px;margin:46px 0 0;flex-wrap:wrap}
+.sec .tagn{background:var(--red);color:#fff;font-family:var(--display);font-weight:800;border-radius:10px;padding:3px 12px;font-size:15px}
+.sec h3{font-size:28px}
+.small{font-size:15px;color:var(--muted)}
+.inst{color:var(--muted);margin-bottom:14px;font-size:17px}
+.callout{background:var(--aux-bg);border-radius:14px;padding:14px 18px;font-size:17px;margin-top:14px}
+.callout b{color:var(--red-ink)}
+.callout.ok{background:var(--ok-bg)}
+.callout.ok b{color:var(--ok)}
+.cols{display:grid;gap:14px}
+.c2{grid-template-columns:1fr 1fr}
+.panel{background:var(--lav);border-radius:14px;padding:16px 18px}
+.panel h4{margin:0 0 6px;font-size:18px;color:var(--plum-ink)}
+.panel p{font-size:17px}
+.aux,.vf{display:inline-block;border-radius:8px;padding:0 9px;font-weight:700;white-space:nowrap}
+.aux{background:var(--aux-bg);color:var(--red-ink)}
+.vf{background:var(--vf-bg);color:var(--plum-ink)}
+.ok-t{color:var(--ok);font-weight:700}
+.bad-t{color:var(--bad);font-weight:700}
+
+.btn{border:2px solid var(--plum-ink);background:var(--paper);color:var(--plum-ink);border-radius:10px;padding:9px 16px;font-weight:700;font-size:16px;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn.primary{background:var(--plum);border-color:var(--plum);color:#fff}
+.btn.sm{padding:5px 12px;font-size:14px}
+.btn:hover{filter:brightness(1.08)}
+.dl{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+
+.flow{list-style:none;padding:0;margin:6px 0 0;display:flex;flex-direction:column;gap:14px;counter-reset:s}
+.flow li{display:grid;grid-template-columns:42px 1fr;gap:12px;counter-increment:s;font-size:17px}
+.flow li::before{content:counter(s);font-family:var(--display);font-weight:800;color:#fff;background:var(--red);width:36px;height:36px;border-radius:50%;display:grid;place-items:center}
+.flow li b{color:var(--plum-ink);display:block;font-family:var(--display);font-size:19px}
+
+/* locks */
+.lockcard{display:none;max-width:540px;margin:24px auto 0;text-align:center}
+[data-lock].locked > .lockcard{display:block}
+[data-lock].locked > .lbody{display:none}
+.lk-ic{font-size:46px;line-height:1}
+.lockcard h3{font-size:26px!important;margin-top:10px}
+.lk-row{display:flex;gap:10px;margin-top:18px}
+.lk-row input{flex:1;min-width:0;font:inherit;font-size:20px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:10px 14px;border:2px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink);text-align:center}
+.lk-msg{min-height:26px;margin-top:10px;font-weight:700;color:var(--bad)}
+
+/* lesson */
+.tl-svg{width:100%;height:auto;display:block;overflow:visible;margin:14px 0 4px}
+.t-axis{stroke:var(--ink);stroke-width:3}
+.t-faint{stroke:var(--muted);stroke-width:2;opacity:.55}
+.t-dash{stroke:var(--red);stroke-width:2.5;stroke-dasharray:5 5}
+.t-big{font:800 26px var(--display);fill:var(--ink)}
+.t-sub{font:400 15px var(--body);fill:var(--muted)}
+.t-vp{font:700 16px var(--body);fill:var(--red-ink)}
+.t-bar{fill:var(--vf-bg);stroke:var(--plum-ink);stroke-width:2}
+.t-red{fill:var(--red)}
+.t-ink{fill:var(--ink)}
+.fam{width:100%;border-collapse:separate;border-spacing:6px;font-size:17px}
+.fam th,.fam td{border-radius:12px;padding:12px 14px;text-align:left;vertical-align:top}
+.fam thead th{background:var(--plum);color:#fff;font-family:var(--display)}
+.fam thead th:first-child{background:transparent}
+.fam tbody th{color:#fff;font-family:var(--display);width:120px}
+.fam small{font-weight:400;opacity:.85;font-family:var(--body);font-size:14px}
+.fam td{background:var(--lav)}
+.fam td b{display:block;margin-bottom:4px}
+.r-past{background:var(--red)}.r-pres{background:var(--plum)}.r-fut{background:var(--green)}
+.scroll-x{overflow-x:auto}
+.tcards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.tcard{border:2px solid var(--line);border-radius:16px;overflow:hidden;background:var(--paper)}
+.tcard.tc-cont{border-style:dashed}
+.tch{padding:10px 16px;color:#fff}
+.tch span{font-size:12px;font-weight:700;letter-spacing:.08em;opacity:.85}
+.tch h4{color:#fff;font-size:20px;margin:0}
+.tc-past .tch{background:var(--red)}.tc-pres .tch{background:var(--plum)}.tc-fut .tch{background:var(--green)}
+.tcb{padding:12px 16px;display:flex;flex-direction:column;gap:6px;font-size:16px}
+.tcb .fm{font-family:var(--display);font-size:22px;font-weight:700}
+.tcb .exs{background:var(--lav);border-radius:10px;padding:8px 12px;font-style:italic}
+.mist{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.mcard{text-align:left;border:2px dashed var(--line);background:var(--paper);border-radius:16px;padding:14px 18px;display:flex;flex-direction:column;gap:4px;font-size:17px}
+.mcard .w{font-family:var(--display);font-weight:700;font-size:21px;color:var(--bad)}
+.mcard .fix{display:none}
+.mcard.open{border-style:solid;border-color:var(--ok);background:var(--ok-bg)}
+.mcard.open .fix{display:block}
+.mcard.open .w{text-decoration:line-through}
+.mcard .c{font-family:var(--display);font-weight:700;font-size:21px;color:var(--ok)}
+.mcard .r{font-size:15px;color:var(--muted)}
+.mcard .tap{font-size:14px;color:var(--muted)}
+.mcard.open .tap{display:none}
+
+.gsel{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:6px}
+.gsel > span{font-weight:700;color:var(--plum-ink);margin-right:4px}
+.gsel button{border:2px solid var(--line);background:var(--paper);border-radius:999px;width:44px;height:44px;font-family:var(--display);font-weight:800;font-size:18px}
+.gsel button[aria-pressed="true"]{background:var(--plum);border-color:var(--plum);color:#fff}
+.keyhint{background:var(--lav);border-radius:12px;padding:12px 16px;margin-top:12px;font-weight:700;color:var(--plum-ink)}
+.keytitle{font-family:var(--display);font-size:20px;color:var(--plum-ink);margin-top:12px}
+
+details{border:2px solid var(--line);border-radius:14px;margin-top:12px;background:var(--paper)}
+details[open]{border-color:var(--plum-ink)}
+summary{cursor:pointer;padding:14px 18px;font-family:var(--display);font-weight:700;font-size:19px;color:var(--plum-ink)}
+.dbody{padding:0 18px 18px}
+.story p{font-size:18px;line-height:2;margin-bottom:8px}
+.k{border-radius:6px;padding:1px 5px;font-weight:700}
+.k sup{font-size:10px;margin-left:3px;font-family:var(--body)}
+.k-past{background:var(--aux-bg);color:var(--red-ink)}
+.k-pres{background:var(--vf-bg);color:var(--plum-ink)}
+.k-fut{background:var(--ok-bg);color:var(--ok)}
+.k-cont{border-bottom:3px dashed currentColor}
+.k-trap{text-decoration:line-through;color:var(--muted);font-weight:700}
+.k-trap sup{font-size:10px;margin-left:3px}
+.legend{display:flex;flex-wrap:wrap;gap:8px;font-size:14px;margin:8px 0 14px}
+.tbl{width:100%;border-collapse:separate;border-spacing:0;font-size:16px;border-radius:12px;overflow:hidden}
+.tbl th{background:var(--plum);color:#fff;text-align:left;padding:9px 12px;font-family:var(--display)}
+.tbl td{padding:8px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl tr:nth-child(even) td{background:var(--lav)}
+.tbl td.zn{color:#fff;font-family:var(--display);font-weight:800}
+.keylist{margin:6px 0 0;padding-left:22px;font-size:16.5px}
+.keylist li{margin-bottom:6px}
+.keylist b{color:var(--ok)}
+
+/* example poster */
+.px{border:3px solid var(--plum);border-radius:18px;overflow:hidden;background:var(--paper);box-shadow:0 10px 30px rgba(43,15,74,.15);margin-top:6px}
+.px-title{background:var(--plum);color:#fff;padding:16px 20px;text-align:center}
+.px-title span{font-size:13px;color:#F7A9B2;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.px-title h3{color:#fff!important;font-size:clamp(24px,4vw,36px)!important;margin:4px 0 0!important}
+.px-tl{display:block;width:100%;height:auto;padding:8px 12px 0}
+.px-tl text{font-family:var(--body)}
+.px-zones{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:12px}
+.pzn{border-radius:14px;border:2px solid;overflow:hidden;display:flex;flex-direction:column;background:var(--paper)}
+.pzn.then{border-color:var(--red)}.pzn.now{border-color:var(--plum)}.pzn.next{border-color:var(--green)}
+.pzh{color:#fff;font-family:var(--display);font-weight:800;padding:6px 12px;font-size:18px;display:flex;justify-content:space-between;align-items:baseline}
+.pzh small{font-weight:500;font-size:13px;opacity:.9;font-family:var(--body)}
+.then .pzh{background:var(--red)}.now .pzh{background:var(--plum)}.next .pzh{background:var(--green)}
+.pic{background:var(--lav);display:grid;place-items:center;padding:10px 8px 2px}
+.pic svg{width:100%;max-width:170px;height:auto}
+.cap{font-size:13.5px;font-style:italic;text-align:center;color:var(--muted);padding:2px 10px 8px;background:var(--lav)}
+.sl{list-style:none;margin:0;padding:10px 12px;display:flex;flex-direction:column;gap:8px;font-size:14.5px;line-height:1.4}
+.sl li{display:grid;grid-template-columns:30px 1fr;gap:6px;align-items:start}
+.chip{font-size:11px;font-weight:800;border-radius:6px;text-align:center;padding:1px 0;color:#fff;font-family:var(--display);margin-top:2px}
+.chip.S{background:#7A6E8C}.chip.P{background:var(--red)}.chip.PC{background:var(--plum)}
+.sl .own::after{content:" ✎";color:var(--red-ink);font-weight:700}
+.sl .a{color:var(--red-ink);font-weight:700}
+.sl .v{color:var(--plum-ink);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.px-bottom{display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:12px;padding:0 12px 12px}
+.px-bottom > *{border-radius:12px;padding:12px 14px;font-size:14.5px}
+.dyk{background:var(--aux-bg)}
+.dyk b,.nm b{display:block;font-family:var(--display);color:var(--red-ink);margin-bottom:2px}
+.flap{border:2px dashed var(--plum-ink);background:var(--vf-bg);text-align:left;color:var(--ink)}
+.flap > b{display:block;font-family:var(--display);color:var(--plum-ink);margin-bottom:2px}
+.flap ol{margin:4px 0 0;padding-left:18px}
+.flap .ans{display:none;margin-top:8px;color:var(--ok);font-weight:700}
+.flap.open .ans{display:block}
+.flap .hint{display:block;font-size:12px;color:var(--muted);margin-top:6px}
+.flap.open .hint{display:none}
+.nm{background:var(--lav)}
+.pkey{display:flex;flex-wrap:wrap;gap:14px;font-size:14px;margin-top:12px;color:var(--muted);align-items:center}
+.pkey .chip{display:inline-block;width:28px;margin-right:4px}
+.ill .f-red{fill:var(--red)}.ill .f-plum{fill:var(--plum)}.ill .f-green{fill:var(--green)}
+.ill .f-paper{fill:#fff}.ill .f-lav{fill:#E6DAF5}.ill .s-ink{stroke:var(--ink);stroke-width:3;fill:none;stroke-linecap:round}
+.ill .f-gold{fill:#E8B931}
+
+/* topic board */
+.board{display:grid;grid-template-columns:repeat(auto-fill,minmax(225px,1fr));gap:10px}
+.tp{border:2px solid var(--line);border-radius:14px;padding:12px 14px;background:var(--paper);display:flex;flex-direction:column;gap:8px}
+.tp.taken{border-color:var(--ok);background:var(--ok-bg)}
+.tp.example{border-style:dashed}
+.tp-h{display:flex;gap:10px;align-items:center}
+.tp-h .em{font-size:30px;line-height:1}
+.tp-h b{display:block;font-family:var(--display);font-size:18px}
+.tp-h .y{font-size:13px;color:var(--muted)}
+.tp label{font-size:14px;font-weight:700;display:flex;gap:8px;align-items:center}
+.tp select{font:inherit;font-size:15px;border:2px solid var(--line);border-radius:8px;padding:4px 8px;background:var(--paper);color:var(--ink)}
+.tp .badge{background:var(--ok);color:#fff;border-radius:999px;padding:1px 10px;font-size:13px;font-weight:700;margin-left:auto}
+.tp details{margin-top:0;border-width:1px;border-radius:10px}
+.tp summary{font-size:14px;padding:6px 10px}
+.tp .fcd{padding:0 10px 10px;font-size:13.5px;display:flex;flex-direction:column;gap:4px}
+.tp .fcd b{color:var(--plum-ink)}
+.ck{display:flex;gap:10px;align-items:flex-start;font-size:16.5px;padding:4px 0;cursor:pointer}
+.ck input{width:20px;height:20px;margin-top:3px;accent-color:var(--plum);flex:none}
+.builder{width:100%;border-collapse:separate;border-spacing:4px;font-size:16px;margin-top:8px}
+.builder th{font-size:13px;color:var(--muted);text-align:left;font-weight:700;padding:0 6px}
+.builder td{background:var(--lav);border-radius:8px;padding:8px 10px;font-weight:700}
+.builder td.a{background:var(--aux-bg);color:var(--red-ink)}
+.builder td.v{background:var(--vf-bg);color:var(--plum-ink)}
+#guru code{display:block;background:var(--lav);padding:10px 12px;border-radius:10px;margin-top:10px;font-size:16px;word-break:break-all}
+#guru input{font:inherit;font-size:17px;border:2px solid var(--line);border-radius:10px;padding:9px 12px;background:var(--paper);color:var(--ink);width:100%;margin-top:10px}
+.foot{color:var(--muted);font-size:14px;padding:24px 20px 60px;text-align:center}
+
+@media (max-width:760px){
+  body{font-size:17px}
+  .c2,.tcards,.mist{grid-template-columns:1fr}
+  .px-zones,.px-bottom{grid-template-columns:1fr}
+  .pnum{font-size:54px}
+  .card{padding:18px}
+}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="kicker">English Grammar · Unit 4</div>
+    <h1>The Perfect <span>Family</span></h1>
+    <p class="sub">Group worksheet, self-study lesson, and poster project. SMK Katolik St. Mikael Surakarta.</p>
+  </div>
+</header>
+
+<div class="tabbar">
+  <div class="wrap">
+    <nav class="tabs" role="tablist" aria-label="Pertemuan">
+      <button class="tab" role="tab" data-p="p1">Pertemuan 1</button>
+      <button class="tab" role="tab" data-p="p2">Pertemuan 2 · Guru</button>
+    </nav>
+  </div>
+</div>
+
+<div id="guru" class="wrap" hidden>
+  <div class="card">
+    <h3>Mode guru</h3>
+    <p class="small">Ketik password baru, lalu salin kode angka ke CONFIG.pwMateri atau CONFIG.pwGuru di dalam file ini.</p>
+    <input id="gIn" autocomplete="off" placeholder="Password baru">
+    <code id="gOut">[ ]</code>
+    <div class="dl"><button class="btn" id="gReset">Kunci lagi semua di perangkat ini</button></div>
+  </div>
+</div>
+
+<main class="wrap">
+
+<!-- ===================== MEETING 1 ===================== -->
+<section class="page" id="p1">
+  <div class="pagehead"><div class="pnum">1</div><div>
+    <h2>The Perfect Detectives</h2>
+    <p class="lede">Discover the perfect tenses with your group, then check your work with the lesson below.</p>
+  </div></div>
+
+  <div class="card">
+    <h3>Unduh lembar kerja (Word)</h3>
+    <p class="small">Untuk guru atau ketua kelas. Setiap kelompok punya cerita dan soal yang berbeda. "Semua kelompok" berisi 6 lembar kerja berbeda dalam satu file, masing-masing sudah bernomor kelompok.</p>
+    <div class="dl">
+      <button class="btn primary" data-dl="all">⬇ Semua kelompok (1–6)</button>
+      <button class="btn" data-dl="1">Kelompok 1</button>
+      <button class="btn" data-dl="2">Kelompok 2</button>
+      <button class="btn" data-dl="3">Kelompok 3</button>
+      <button class="btn" data-dl="4">Kelompok 4</button>
+      <button class="btn" data-dl="5">Kelompok 5</button>
+      <button class="btn" data-dl="6">Kelompok 6</button>
+    </div>
+  </div>
+
+  <div class="sec"><span class="tagn">Lesson</span><h3>The Perfect Family</h3></div>
+  <div data-lock="materi">
+  <div class="lbody">
+
+    <div class="card">
+      <h3>Perfect = looking back</h3>
+      <p>All perfect tenses use a form of <b>HAVE</b>: <span class="aux">have / has</span>, <span class="aux">had</span>, or <span class="aux">will have</span>. The sentence stands at one point in time (the past, now, or the future) and <b>looks back</b> at something that happened before it.</p>
+      <svg viewBox="0 0 900 340" class="tl-svg" role="img" aria-label="Three timelines: had looks back from a past moment, have or has looks back from now, will have looks back from a future moment">
+        <defs><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="t-ink"/></marker></defs>
+        <text x="6" y="66" class="t-big">had</text>
+        <text x="6" y="90" class="t-sub">Past Perfect (Cont.)</text>
+        <line x1="190" y1="70" x2="878" y2="70" class="t-axis" marker-end="url(#ar)"/>
+        <line x1="600" y1="60" x2="600" y2="80" class="t-faint"/>
+        <rect x="250" y="62" width="150" height="16" rx="8" class="t-bar"/>
+        <circle cx="215" cy="70" r="9" class="t-red"/>
+        <line x1="400" y1="36" x2="400" y2="86" class="t-dash"/>
+        <text x="400" y="28" class="t-vp" text-anchor="middle">a PAST moment</text>
+
+        <text x="6" y="166" class="t-big">have / has</text>
+        <text x="6" y="190" class="t-sub">Present Perfect (Cont.)</text>
+        <line x1="190" y1="170" x2="878" y2="170" class="t-axis" marker-end="url(#ar)"/>
+        <rect x="450" y="162" width="150" height="16" rx="8" class="t-bar"/>
+        <circle cx="415" cy="170" r="9" class="t-red"/>
+        <line x1="600" y1="136" x2="600" y2="186" class="t-dash"/>
+        <text x="600" y="128" class="t-vp" text-anchor="middle">NOW</text>
+
+        <text x="6" y="266" class="t-big">will have</text>
+        <text x="6" y="290" class="t-sub">Future Perfect (Cont.)</text>
+        <line x1="190" y1="270" x2="878" y2="270" class="t-axis" marker-end="url(#ar)"/>
+        <line x1="600" y1="260" x2="600" y2="280" class="t-faint"/>
+        <text x="600" y="300" class="t-sub" text-anchor="middle">now</text>
+        <rect x="650" y="262" width="150" height="16" rx="8" class="t-bar"/>
+        <circle cx="628" cy="270" r="9" class="t-red"/>
+        <line x1="800" y1="236" x2="800" y2="286" class="t-dash"/>
+        <text x="800" y="228" class="t-vp" text-anchor="middle">a FUTURE moment</text>
+
+        <circle cx="200" cy="328" r="8" class="t-red"/>
+        <text x="216" y="333" class="t-sub">finished before that moment (V3)</text>
+        <rect x="500" y="320" width="44" height="16" rx="8" class="t-bar"/>
+        <text x="556" y="333" class="t-sub">duration up to that moment (been + V-ing)</text>
+      </svg>
+      <div class="callout"><b>V3</b> = finished; the focus is the result. &nbsp; <b>been + V-ing</b> = still going on; the focus is how long.</div>
+    </div>
+
+    <div class="card scroll-x">
+      <h3>The family table</h3>
+      <table class="fam">
+        <thead><tr><th></th><th>Perfect<br><small>V3 · finished / result</small></th><th>Perfect Continuous<br><small>been + V-ing · duration</small></th></tr></thead>
+        <tbody>
+          <tr><th class="r-past">PAST<br><small>had</small></th><td><b>Past Perfect</b><span class="aux">had</span> + <span class="vf">V3</span></td><td><b>Past Perfect Continuous</b><span class="aux">had been</span> + <span class="vf">V-ing</span></td></tr>
+          <tr><th class="r-pres">PRESENT<br><small>have / has</small></th><td><b>Present Perfect</b><span class="aux">have / has</span> + <span class="vf">V3</span></td><td><b>Present Perfect Continuous</b><span class="aux">have / has been</span> + <span class="vf">V-ing</span></td></tr>
+          <tr><th class="r-fut">FUTURE<br><small>will have</small></th><td><b>Future Perfect</b><span class="aux">will have</span> + <span class="vf">V3</span></td><td><b>Future Perfect Continuous</b><span class="aux">will have been</span> + <span class="vf">V-ing</span></td></tr>
+        </tbody>
+      </table>
+      <p class="small" style="margin-top:8px">Tip: the helping verb shows the TIME (had = past, have/has = present, will have = future). Do you see <b>been + V-ing</b>? Then the tense is continuous.</p>
+    </div>
+
+    <div class="card">
+      <h3>The six tenses, one by one</h3>
+      <p class="inst">The examples come from Group 1's story, Rafi's PKL Diary.</p>
+      <div class="tcards" id="tcards"></div>
+    </div>
+
+    <div class="card">
+      <h3>Perfect or Perfect Continuous?</h3>
+      <div class="cols c2">
+        <div class="panel"><h4>Perfect (V3): result, how many</h4><p>Rafi <span class="aux">has</span> <span class="vf">fixed</span> three motorcycles today.</p><p class="small" style="margin-top:6px">The work is finished. The result is what matters.</p></div>
+        <div class="panel"><h4>Perfect Continuous: activity, how long</h4><p>Rafi <span class="aux">has been</span> <span class="vf">fixing</span> motorcycles for three hours.</p><p class="small" style="margin-top:6px">The length of the activity is what matters.</p></div>
+      </div>
+      <div class="callout"><b>Careful:</b> some verbs are not used in the continuous: <i>know, like, love, want, believe, have</i> (= to own).<br><span class="ok-t">✓</span> I have known Rafi for years. &nbsp; <span class="bad-t">✗</span> <s>I have been knowing Rafi for years.</s></div>
+    </div>
+
+    <div class="card">
+      <h3>Common mistakes</h3>
+      <p class="inst">Find the mistake first, then tap to check.</p>
+      <div class="mist" id="mist"></div>
+    </div>
+
+    <div class="card">
+      <h3>Check your worksheet</h3>
+      <p class="inst">Have you read the whole lesson? Choose your group number, then open the answer keys one at a time and correct your group worksheet with a <b>red pen</b>. Do not erase your first answers. Check Parts E and F yourselves with the family table above.</p>
+      <div class="gsel" id="gsel"><span>Your group:</span></div>
+      <div id="keys"></div>
+    </div>
+
+    <div class="card">
+      <h3>Finished correcting? Go to Quizizz</h3>
+      <p class="inst">Work on your own.</p>
+      <div id="qz"></div>
+    </div>
+
+  </div>
+  </div>
+</section>
+
+<!-- ===================== MEETING 2 ===================== -->
+<section class="page" id="p2">
+<div data-lock="guru">
+<div class="lbody">
+  <div class="pagehead"><div class="pnum">2</div><div>
+    <h2>Poster Project: Then, Now & Next</h2>
+    <p class="lede">Your group makes an infographic poster about how one technology has changed. Today you plan it. Next meeting you make it.</p>
+  </div></div>
+
+  <div class="card">
+    <h3>Unduh untuk dicetak (guru)</h3>
+    <p class="small">Cetak sebelum Pertemuan 2: Poster Planner untuk 6 kelompok, dan 1 set Fact Cards (digunting per topik, dibagikan setelah kelompok memilih topik).</p>
+    <div class="dl">
+      <button class="btn primary" data-pl="all">⬇ Poster Planner (Kelompok 1–6)</button>
+      <button class="btn primary" data-fc="1">⬇ Fact Cards (semua topik)</button>
+    </div>
+    <div class="dl">
+      <button class="btn sm" data-pl="1">Planner 1</button><button class="btn sm" data-pl="2">Planner 2</button><button class="btn sm" data-pl="3">Planner 3</button>
+      <button class="btn sm" data-pl="4">Planner 4</button><button class="btn sm" data-pl="5">Planner 5</button><button class="btn sm" data-pl="6">Planner 6</button>
+    </div>
+  </div>
+
+  <div class="card scroll-x">
+    <h3>What goes on your poster</h3>
+    <p class="inst">Three zones. Each zone has <b>5 sentences</b>: 1 simple, 2 perfect, and 2 perfect continuous. In each pair, one sentence is <b>guided</b> (complete the frame) and one is <b>your own</b> ✎.</p>
+    <table class="tbl">
+      <thead><tr><th>Zone</th><th>Simple × 1</th><th>Perfect × 2</th><th>Perfect Continuous × 2</th><th>Picture</th></tr></thead>
+      <tbody>
+        <tr><td class="zn" style="background:var(--red)">THEN</td><td>Simple Past</td><td>Past Perfect</td><td>Past Perfect Continuous</td><td>1 + caption</td></tr>
+        <tr><td class="zn" style="background:var(--plum)">NOW</td><td>Simple Present</td><td>Present Perfect</td><td>Present Perfect Continuous</td><td>1 + caption</td></tr>
+        <tr><td class="zn" style="background:var(--green)">NEXT</td><td>Simple Future</td><td>Future Perfect</td><td>Future Perfect Continuous</td><td>1 + caption</td></tr>
+      </tbody>
+    </table>
+    <p class="small" style="margin-top:10px">Also needed: a title, a timeline with years, a "Did you know?" box, a "Find the tenses" flap with 3 questions, and your group's names.</p>
+  </div>
+
+  <div class="card">
+    <h3>Example poster: Mobile Phones</h3>
+    <p class="inst">This is the example only. No group can choose mobile phones. Copy the structure, not the sentences.</p>
+    <div class="px">
+      <div class="px-title"><span>Group 0 · Example</span><h3>Mobile Phones: Then, Now & Next</h3></div>
+      <svg class="px-tl" viewBox="0 0 900 76" role="img" aria-label="Timeline: 1876 telephone, 1973 first mobile phone call, 2007 first iPhone, now, 2030, 2035">
+        <defs><marker id="ar2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs>
+        <rect x="20" y="8" width="430" height="20" rx="10" fill="#C62033" opacity=".15"/><text x="235" y="23" text-anchor="middle" font-size="13" font-weight="700" fill="#B01A2C">THEN</text>
+        <rect x="455" y="8" width="90" height="20" rx="10" fill="#4A1A7A" opacity=".15"/><text x="500" y="23" text-anchor="middle" font-size="13" font-weight="700" fill="#8A5BC4">NOW</text>
+        <rect x="550" y="8" width="330" height="20" rx="10" fill="#1B7F52" opacity=".15"/><text x="715" y="23" text-anchor="middle" font-size="13" font-weight="700" fill="#2E9C68">NEXT</text>
+        <line x1="20" y1="46" x2="880" y2="46" stroke="currentColor" stroke-width="3" marker-end="url(#ar2)" style="color:var(--ink)"/>
+        <g font-size="14" font-weight="700" text-anchor="middle" style="fill:var(--ink)">
+          <circle cx="80" cy="46" r="7" fill="#C62033"/><text x="80" y="70">1876</text>
+          <circle cx="260" cy="46" r="7" fill="#C62033"/><text x="260" y="70">1973</text>
+          <circle cx="390" cy="46" r="7" fill="#C62033"/><text x="390" y="70">2007</text>
+          <circle cx="500" cy="46" r="10" fill="#4A1A7A"/><text x="500" y="70">NOW</text>
+          <circle cx="650" cy="46" r="7" fill="#1B7F52"/><text x="650" y="70">2030</text>
+          <circle cx="780" cy="46" r="7" fill="#1B7F52"/><text x="780" y="70">2035</text>
+        </g>
+      </svg>
+      <div class="px-zones">
+        <div class="pzn then">
+          <div class="pzh">THEN <small>1876 – 2006</small></div>
+          <div class="pic"><svg class="ill" viewBox="0 0 120 90" aria-hidden="true">
+            <path d="M18 80 L32 46 H88 L102 80 Z" class="f-red"/>
+            <circle cx="60" cy="62" r="12" class="f-paper"/><circle cx="60" cy="62" r="4.5" class="f-red"/>
+            <g class="f-red"><circle cx="60" cy="53.5" r="1.6"/><circle cx="67" cy="57" r="1.6"/><circle cx="68.5" cy="64" r="1.6"/><circle cx="53" cy="57" r="1.6"/><circle cx="51.5" cy="64" r="1.6"/></g>
+            <path d="M22 40 Q22 24 38 24 H82 Q98 24 98 40 L88 44 Q86 34 78 34 H42 Q34 34 32 44 Z" class="f-plum"/>
+            <path d="M102 74 q8 3 5 8 q-3 5 5 7" class="s-ink"/>
+          </svg></div>
+          <p class="cap">Phones had cables for almost 100 years!</p>
+          <ul class="sl" data-ex="then"></ul>
+        </div>
+        <div class="pzn now">
+          <div class="pzh">NOW <small>2007 – today</small></div>
+          <div class="pic"><svg class="ill" viewBox="0 0 120 90" aria-hidden="true">
+            <rect x="40" y="4" width="40" height="82" rx="8" class="f-plum"/>
+            <rect x="44" y="12" width="32" height="64" rx="3" class="f-paper"/>
+            <g class="f-lav"><rect x="48" y="17" width="7" height="7" rx="2"/><rect x="57" y="17" width="7" height="7" rx="2"/><rect x="66" y="17" width="7" height="7" rx="2"/>
+            <rect x="48" y="27" width="7" height="7" rx="2"/><rect x="57" y="27" width="7" height="7" rx="2"/><rect x="66" y="27" width="7" height="7" rx="2"/></g>
+            <rect x="48" y="40" width="25" height="20" rx="3" class="f-red"/>
+            <path d="M54 55 L59 48 L63 52 L66 49 L70 55 Z" class="f-paper"/>
+            <circle cx="60" cy="81" r="2.5" class="f-paper"/>
+          </svg></div>
+          <p class="cap">Our pocket computer.</p>
+          <ul class="sl" data-ex="now"></ul>
+        </div>
+        <div class="pzn next">
+          <div class="pzh">NEXT <small>2030 – 2040</small></div>
+          <div class="pic"><svg class="ill" viewBox="0 0 120 90" aria-hidden="true">
+            <rect x="24" y="14" width="36" height="66" rx="7" class="f-plum" transform="rotate(-10 42 47)"/>
+            <rect x="29" y="20" width="26" height="54" rx="3" class="f-lav" transform="rotate(-10 42 47)"/>
+            <rect x="60" y="14" width="36" height="66" rx="7" class="f-green" transform="rotate(10 78 47)"/>
+            <rect x="65" y="20" width="26" height="54" rx="3" class="f-paper" transform="rotate(10 78 47)"/>
+            <path d="M104 10 l3 7 l7 3 l-7 3 l-3 7 l-3 -7 l-7 -3 l7 -3 Z" class="f-gold"/>
+            <path d="M14 58 l2 5 l5 2 l-5 2 l-2 5 l-2 -5 l-5 -2 l5 -2 Z" class="f-gold"/>
+          </svg></div>
+          <p class="cap">Folding phones: the future?</p>
+          <ul class="sl" data-ex="next"></ul>
+        </div>
+      </div>
+      <div class="px-bottom">
+        <div class="dyk"><b>Did you know?</b>The first mobile phone weighed about 1 kg!</div>
+        <button class="flap" id="flap"><b>Find the tenses!</b>
+          <ol><li>Find a sentence with <i>will have been + V-ing</i>.</li><li>Which year does the first Past Perfect sentence talk about?</li><li>Find a Present Perfect sentence with <i>since</i>.</li></ol>
+          <span class="hint">Tap to lift the flap</span>
+          <span class="ans">1. By 2030, people will have been using smartphones for 23 years. · 2. 1973 · 3. Since 2007, smartphones have changed the way people study.</span>
+        </button>
+        <div class="nm"><b>Group 0 · XI TPM 1</b>Andi, Rina, Dimas, Sari, Bayu</div>
+      </div>
+    </div>
+    <div class="pkey"><span><span class="chip S">S</span>Simple</span><span><span class="chip P">P</span>Perfect</span><span><span class="chip PC">PC</span>Perfect Continuous</span><span><b style="color:var(--red-ink)">✎</b> your own sentence</span><span><b style="color:var(--red-ink)">red</b> = helping verb · <b style="color:var(--plum-ink);text-decoration:underline">purple</b> = main verb</span></div>
+  </div>
+
+  <div class="card">
+    <h3>Choose your topic</h3>
+    <p class="inst">Each topic can be chosen by <b>one group only</b>. Pick your group number under your topic. Then get your fact card from the class leader, or open it below.</p>
+    <div class="board" id="board"></div>
+    <div class="dl"><button class="btn sm" id="boardReset">Reset board</button></div>
+  </div>
+
+  <div class="card">
+    <h3>How to write your own sentences ✎</h3>
+    <p class="inst">Take a fact from your fact card, add the time clue from your planner, and build the sentence in four parts.</p>
+    <div class="scroll-x"><table class="builder">
+      <thead><tr><th>Subject</th><th>Helping verb</th><th>Verb form</th><th>The rest</th></tr></thead>
+      <tbody><tr><td>People</td><td class="a">had been</td><td class="v">writing</td><td>letters for centuries before SMS appeared.</td></tr></tbody>
+    </table></div>
+    <h4>Which helping verb? Which verb form?</h4>
+    <div class="scroll-x"><table class="tbl">
+      <thead><tr><th>Tense</th><th>Helping verb</th><th>Verb form</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td>Simple Past</td><td>–</td><td>V2</td><td>appeared, used</td></tr>
+        <tr><td>Simple Present</td><td>–</td><td>V1 / V1 + s</td><td>use, uses</td></tr>
+        <tr><td>Simple Future</td><td>will</td><td>V1</td><td>will be</td></tr>
+        <tr><td>Past Perfect</td><td>had</td><td>V3</td><td>had used</td></tr>
+        <tr><td>Present Perfect</td><td>have / has</td><td>V3</td><td>have changed</td></tr>
+        <tr><td>Future Perfect</td><td>will have</td><td>V3</td><td>will have become</td></tr>
+        <tr><td>Past Perfect Continuous</td><td>had been</td><td>V-ing</td><td>had been using</td></tr>
+        <tr><td>Present Perfect Continuous</td><td>have / has been</td><td>V-ing</td><td>have been using</td></tr>
+        <tr><td>Future Perfect Continuous</td><td>will have been</td><td>V-ing</td><td>will have been using</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="card">
+    <h3>Steps for today</h3>
+    <ol class="flow">
+      <li><div><b>Choose your topic</b>Use the topic board. Write your topic on the planner.</div></li>
+      <li><div><b>Read your fact card</b>Copy the important facts into Step 1 of your planner.</div></li>
+      <li><div><b>Write 15 sentences</b>Complete the guided frames, then write your own sentences with the sentence builder. Look at the example poster when you are not sure.</div></li>
+      <li><div><b>Peer check</b>Swap planners with another group. Check all 15 sentences with the checklist in Step 5, then give the planner back and fix your mistakes.</div></li>
+      <li><div><b>Plan pictures and the layout</b>Choose one picture for each zone, write the captions, write 3 "Find the tenses" questions, and draw your layout sketch.</div></li>
+      <li><div><b>Photograph and submit</b>One representative uploads photos of the planner to Google Classroom.</div></li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h3>Check before you take the photos</h3>
+    <label class="ck"><input type="checkbox"> <span>All 15 sentences are complete: 5 in each zone.</span></label>
+    <label class="ck"><input type="checkbox"> <span>Another group has checked our sentences, and we fixed the mistakes.</span></label>
+    <label class="ck"><input type="checkbox"> <span>Each zone has a picture idea and a caption.</span></label>
+    <label class="ck"><input type="checkbox"> <span>The "Find the tenses" questions have answers.</span></label>
+    <label class="ck"><input type="checkbox"> <span>The writing is clear in the photos (good light, no part of the paper cut off).</span></label>
+  </div>
+
+  <div class="card">
+    <h3>Submit on Google Classroom</h3>
+    <p>Only <b>one representative</b> per group uploads. Take a clear photo of every page of the planner.</p>
+    <p style="margin-top:8px">File name: <b>Group3_Motorcycles_Draft</b></p>
+    <div class="callout">Your <b>group leader keeps the planner</b> and must bring it to Meeting 3.</div>
+  </div>
+
+  <div class="card">
+    <h3>Meeting 3: making the poster</h3>
+    <p>You will make your poster from your planner. Please bring:</p>
+    <label class="ck"><input type="checkbox"> <span>Poster board or manila paper, at least A3</span></label>
+    <label class="ck"><input type="checkbox"> <span>Red and purple markers (required) and other colours</span></label>
+    <label class="ck"><input type="checkbox"> <span>Your three pictures (printed, cut from magazines, or drawn)</span></label>
+    <label class="ck"><input type="checkbox"> <span>Glue or tape, scissors, a ruler</span></label>
+    <label class="ck"><input type="checkbox"> <span>Your planner</span></label>
+    <div class="callout ok"><b>When your poster is finished,</b> walk around and answer the other groups' "Find the tenses" questions in your notebook. Then put your poster on the teacher's desk with your group number and names on the back.</div>
+  </div>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer class="foot">SMK Katolik St. Mikael Surakarta · English Grammar Unit 4 · The Perfect Family</footer>
+
+<script>
+(function(){
+"use strict";
+
+/* ====== GURU: ubah pengaturan di sini ======
+   Password default: materi = ANGSA92, panel Pertemuan 2 = MERPATI47
+   Buat kode baru: buka file ini dengan #guru di akhir alamat.
+   Set ke null untuk mematikan kunci. */
+const CONFIG={
+  pwMateri:[72,85,78,90,72,64,57],
+  pwGuru:[84,76,89,87,72,91,80,59,62],
+  quizizz:"" /* tempel link Quizizz di sini, contoh: "https://quizizz.com/join?gc=123456" */
+};
+
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const startHash=location.hash;
+
+const KEY="smkmikael-unit4-perfect-v3";
+let S={unlocked:{},claims:{},keyGroup:0};
+try{ const d=JSON.parse(localStorage.getItem(KEY)||"null"); if(d) S=Object.assign(S,d); }catch(e){}
+S.claims=S.claims||{};
+function save(){ try{ localStorage.setItem(KEY,JSON.stringify(S)); }catch(e){} }
+
+/* ---------- tabs ---------- */
+const pages=$$(".page"), tabs=$$(".tab");
+function show(id){
+  const el=document.getElementById(id);
+  if(!el||!el.classList.contains("page")) id="p1";
+  pages.forEach(p=>p.classList.toggle("active",p.id===id));
+  tabs.forEach(t=>t.setAttribute("aria-selected",t.dataset.p===id));
+  try{ history.replaceState(null,"","#"+id); }catch(e){}
+  window.scrollTo(0,0);
+}
+tabs.forEach(t=>t.addEventListener("click",()=>show(t.dataset.p)));
+
+/* ---------- locks ---------- */
+const clean=s=>String(s).toUpperCase().replace(/[^A-Z0-9]/g,"");
+const enc=s=>[...clean(s)].map(c=>c.charCodeAt(0)+7);
+const same=(a,b)=>!!a&&!!b&&a.length===b.length&&a.every((v,i)=>v===b[i]);
+const LOCKS={
+  materi:{pw:CONFIG.pwMateri,title:"The lesson is locked",desc:"Finish your group worksheet first. Your class leader will give you the password when every part of your worksheet is complete.",btn:"Open",wrong:"Wrong password. Try again.",empty:"Type the password first."},
+  guru:{pw:CONFIG.pwGuru,title:"Pertemuan 2 · khusus guru",desc:"Masukkan password untuk membuka panduan proyek poster.",btn:"Buka",wrong:"Password salah. Periksa lagi.",empty:"Ketik password dulu."}
+};
+const isOpen=k=>!LOCKS[k].pw||!!S.unlocked[k];
+function applyLocks(){
+  $$("[data-lock]").forEach(el=>el.classList.toggle("locked",!isOpen(el.dataset.lock)));
+  tabs.forEach(t=>t.classList.toggle("lk",t.dataset.p==="p2"&&!isOpen("guru")));
+}
+$$("[data-lock]").forEach(el=>{
+  const k=el.dataset.lock, L=LOCKS[k];
+  const card=document.createElement("div"); card.className="card lockcard";
+  card.innerHTML=`<div class="lk-ic">🔒</div><h3>${esc(L.title)}</h3><p class="small" style="margin-top:8px">${esc(L.desc)}</p>
+    <div class="lk-row"><input type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Password" placeholder="PASSWORD"><button class="btn primary">${L.btn}</button></div>
+    <div class="lk-msg" aria-live="polite"></div>`;
+  el.insertBefore(card,el.firstChild);
+  const inp=$("input",card), msg=$(".lk-msg",card);
+  const tryOpen=()=>{
+    const code=enc(inp.value);
+    if(!code.length){ msg.textContent=L.empty; return; }
+    if(same(code,CONFIG.pwGuru)){ S.unlocked.guru=true; S.unlocked.materi=true; }
+    else if(k==="materi"&&same(code,CONFIG.pwMateri)){ S.unlocked.materi=true; }
+    else { msg.textContent=L.wrong; inp.select(); return; }
+    inp.value=""; msg.textContent=""; save(); applyLocks();
+  };
+  $("button",card).addEventListener("click",tryOpen);
+  inp.addEventListener("keydown",e=>{ if(e.key==="Enter") tryOpen(); });
+});
+
+if(startHash==="#guru"){
+  $("#guru").hidden=false;
+  $("#gIn").addEventListener("input",e=>{ $("#gOut").textContent=JSON.stringify(enc(e.target.value)); });
+  $("#gReset").addEventListener("click",()=>{ S.unlocked={}; save(); applyLocks(); });
+}
+
+/* =================== MEETING 1: SIX DIFFERENT WORKSHEETS =================== */
+const WS=[
+ { title:"Rafi's PKL Diary", trap:"has",
+   trapExp:"\"He has a small office...\" Here has is the main verb (= to own), not a helping verb. There is no V3 or been + V-ing after it.",
+   story:[
+    "My name is Rafi. I am a student at SMK Katolik St. Mikael, and this month I am doing my PKL at a motorcycle workshop in Solo.",
+    "I {pp|have worked} here for five days, and I {pp|have already learned} a lot. My supervisor, Pak Darto, {ppc|has been repairing} motorcycles since 1998. He {trap|has} a small office next to the workshop, full of old spare parts.",
+    "On my first day I was very nervous. When I arrived at 7 a.m., the mechanics {pap|had already opened} the workshop. They {papc|had been working} for an hour because a customer needed his motorcycle early. The poor customer {papc|had been waiting} outside since 6 o'clock! I {pap|had never seen} so many engines in one room.",
+    "Since Monday, I {ppc|have been practising} how to change engine oil, and my hands are always black.",
+    "I am excited about the future. By the end of this month, I {fp|will have finished} my first project: a full engine service. By December, I {fpc|will have been working} here for three months. Pak Darto says that by 2030 he {fpc|will have been repairing} motorcycles for more than thirty years. I hope that by then I {fp|will have opened} my own workshop!"],
+   cq:[
+    ["\"When I arrived at 7 a.m., the mechanics had already opened the workshop.\" What happened first?","The mechanics opened the workshop first. Rafi arrived after that."],
+    ["\"The poor customer had been waiting outside since 6 o'clock.\" How long had he been waiting when Rafi arrived?","For one hour (from 6 to 7 a.m.)."],
+    ["\"Pak Darto has been repairing motorcycles since 1998.\" Does he still repair motorcycles now? How do you know?","Yes. has been + V-ing + since: it started in 1998 and continues until now."],
+    ["\"By the end of this month, I will have finished my first project.\" At the end of the month, is the project finished? (Yes / No)","Yes. will have + V3 = already finished at that future moment."],
+    ["\"By December, I will have been working here for three months.\" In December, is Rafi still working there? (Yes / No)","Yes. will have been + V-ing shows how long an activity has been going on at that future moment."]],
+   d:[
+    ["Now · finished","Look! Rafi ___ (finish) the engine service. The motorcycle is ready.","has finished / has just finished","Present Perfect"],
+    ["Now · how long","Rafi is tired. He ___ (work) on the engine for two hours.","has been working","Present Perfect Continuous"],
+    ["Past · finished before","When Pak Darto came back, Rafi ___ (already / finish) the engine service.","had already finished","Past Perfect"],
+    ["Past · how long","Rafi ___ (work) on the engine for two hours when Pak Darto came back.","had been working","Past Perfect Continuous"],
+    ["Future · finished before","By 4 p.m. tomorrow, Rafi ___ (finish) the engine service.","will have finished","Future Perfect"],
+    ["Future · how long","By 4 p.m. tomorrow, Rafi ___ (work) on the engine for three hours.","will have been working","Future Perfect Continuous"],
+    ["","I'm sleepy because I ___ (study) since 7 a.m.","have been studying","Present Perfect Continuous"],
+    ["","She ___ (never / visit) Jakarta before last year.","had never visited","Past Perfect"],
+    ["","By next month, my father ___ (pay) for my new laptop.","will have paid","Future Perfect"],
+    ["","The road was wet because it ___ (rain) all night.","had been raining","Past Perfect Continuous"]],
+   bonus:[["She has went home.","She has gone home."],["I have been study since 7 a.m.","I have been studying since 7 a.m."],["By 2030, he will has worked here for ten years.","By 2030, he will have worked here for ten years."],["When I arrived, the bus has left.","When I arrived, the bus had left."]]
+ },
+ { title:"Nadia's Welding Competition", trap:"has",
+   trapExp:"\"He always has a cup of strong coffee...\" Here has is the main verb (= to drink), not a helping verb. There is no V3 or been + V-ing after it.",
+   story:[
+    "My name is Nadia. I am a student at SMK Katolik St. Mikael, and next week I am competing in a welding competition in Semarang.",
+    "I {pp|have practised} welding every afternoon this month, and I {pp|have already passed} two practice tests. My coach, Pak Heru, {ppc|has been teaching} welding at our school since 2005. He always {trap|has} a cup of strong coffee before training.",
+    "Last year I joined the same competition, but I was not ready. When I arrived at the hall, the other students {pap|had already prepared} their tools. Some of them {papc|had been training} for two years, but I {papc|had been practising} for only three weeks! Before that day, I {pap|had never welded} in front of judges.",
+    "Since July, I {ppc|have been waking} up at 5 a.m. to train before school.",
+    "I feel more confident now. By the day of the competition, I {fp|will have finished} more than fifty practice welds. By December, I {fpc|will have been training} for six months. By next June, Pak Heru {fpc|will have been coaching} competition teams for ten years. If I win, I {fp|will have achieved} my biggest dream by the end of this year!"],
+   cq:[
+    ["\"When I arrived at the hall, the other students had already prepared their tools.\" What happened first?","The other students prepared their tools first. Nadia arrived after that."],
+    ["\"I had been practising for only three weeks!\" How long had Nadia been practising before last year's competition?","For only three weeks."],
+    ["\"Pak Heru has been teaching welding at our school since 2005.\" Does he still teach welding now? How do you know?","Yes. has been + V-ing + since: it started in 2005 and continues until now."],
+    ["\"By the day of the competition, I will have finished more than fifty practice welds.\" On the day of the competition, are the practice welds finished? (Yes / No)","Yes. will have + V3 = already finished at that future moment."],
+    ["\"By December, I will have been training for six months.\" In December, is Nadia still training? (Yes / No)","Yes. will have been + V-ing shows the training is still going on at that future moment."]],
+   d:[
+    ["Now · finished","Look! Nadia ___ (finish) her test weld. It looks perfect.","has finished / has just finished","Present Perfect"],
+    ["Now · how long","Nadia is tired. She ___ (practise) for three hours.","has been practising","Present Perfect Continuous"],
+    ["Past · finished before","When the judges arrived, Nadia ___ (already / finish) her weld.","had already finished","Past Perfect"],
+    ["Past · how long","Nadia ___ (practise) for three hours when the judges arrived.","had been practising","Past Perfect Continuous"],
+    ["Future · finished before","By 5 p.m. tomorrow, Nadia ___ (finish) ten welds.","will have finished","Future Perfect"],
+    ["Future · how long","By 5 p.m. tomorrow, Nadia ___ (practise) for four hours.","will have been practising","Future Perfect Continuous"],
+    ["","My brother ___ (work) in Jakarta since 2022.","has been working / has worked","Present Perfect Continuous"],
+    ["","Before I joined the team, I ___ (never / hold) a welding torch.","had never held","Past Perfect"],
+    ["","By the end of the month, we ___ (buy) new safety helmets.","will have bought","Future Perfect"],
+    ["","The room was hot because the machines ___ (run) all day.","had been running","Past Perfect Continuous"]],
+   bonus:[["He have finished his test.","He has finished his test."],["I have been practise since July.","I have been practising since July."],["By next year, she will has learned to weld.","By next year, she will have learned to weld."],["When we arrived, the bus already left.","When we arrived, the bus had already left."]]
+ },
+ { title:"Bima's Car Service Diary", trap:"has",
+   trapExp:"\"Every day she has lunch...\" Here has is the main verb (= to eat), not a helping verb. There is no V3 or been + V-ing after it.",
+   story:[
+    "My name is Bima. This semester I am doing my PKL at a car service centre in Klaten.",
+    "I {pp|have changed} the oil in more than twenty cars, and I {pp|have just learned} how to check brakes. The head mechanic, Bu Rina, {ppc|has been working} here for twelve years. Every day she {trap|has} lunch with the new students and answers our questions.",
+    "Yesterday was a difficult day. When the customer came back at 4 p.m., we {pap|had not finished} his car. We {papc|had been looking} for a strange noise in the engine all afternoon. Finally Bu Rina found the problem: a mouse {pap|had built} a nest under the engine cover! It {papc|had been living} there for weeks.",
+    "Since that day, I {ppc|have been checking} every engine cover very carefully.",
+    "My PKL ends in December. By then, I {fp|will have serviced} more than one hundred cars. By the time I graduate, I {fpc|will have been studying} at SMK Mikael for three years. I hope that by 2030 I {fp|will have become} a head mechanic like Bu Rina. By then, she {fpc|will have been working} here for sixteen years."],
+   cq:[
+    ["\"Finally Bu Rina found the problem: a mouse had built a nest under the engine cover!\" What happened first: the mouse built the nest, or Bu Rina found the problem?","The mouse built the nest first. Bu Rina found it later."],
+    ["\"When the customer came back at 4 p.m., we had not finished his car.\" Was the car ready when the customer came back? (Yes / No)","No. had not finished = the work was still not done at 4 p.m."],
+    ["\"Bu Rina has been working here for twelve years.\" Does she still work there now? How do you know?","Yes. has been + V-ing: it started twelve years ago and continues until now."],
+    ["\"My PKL ends in December. By then, I will have serviced more than one hundred cars.\" In December, is the work on those cars finished? (Yes / No)","Yes. will have + V3 = already finished at that future moment."],
+    ["\"By 2030, she will have been working here for sixteen years.\" In 2030, is Bu Rina still working there? (Yes / No)","Yes. will have been + V-ing shows the work is still going on at that future moment."]],
+   d:[
+    ["Now · finished","Look! Bima ___ (repair) the car. The customer can take it now.","has repaired / has just repaired","Present Perfect"],
+    ["Now · how long","Bima's hands are dirty. He ___ (check) brakes all morning.","has been checking","Present Perfect Continuous"],
+    ["Past · finished before","When the customer arrived, Bima ___ (already / repair) the car.","had already repaired","Past Perfect"],
+    ["Past · how long","Bima ___ (check) the brakes for an hour when the customer arrived.","had been checking","Past Perfect Continuous"],
+    ["Future · finished before","By noon tomorrow, Bima ___ (repair) three cars.","will have repaired","Future Perfect"],
+    ["Future · how long","By noon tomorrow, Bima ___ (check) brakes for four hours.","will have been checking","Future Perfect Continuous"],
+    ["","We ___ (wait) for the bus for twenty minutes, and it still isn't here.","have been waiting","Present Perfect Continuous"],
+    ["","By the time we got to the cinema, the film ___ (start).","had started / had already started","Past Perfect"],
+    ["","By next week, I ___ (read) the whole book.","will have read","Future Perfect"],
+    ["","Her eyes were red because she ___ (cry).","had been crying","Past Perfect Continuous"]],
+   bonus:[["She has went to the workshop.","She has gone to the workshop."],["They has been waiting for an hour.","They have been waiting for an hour."],["By 2030, I will have been work here for five years.","By 2030, I will have been working here for five years."],["I had see the car before.","I had seen the car before."]]
+ },
+ { title:"Sekar and the CNC Machine", trap:"had",
+   trapExp:"\"Last Monday our class had a meeting...\" Here had is the main verb (= joined / held a meeting), not a helping verb. There is no V3 or been + V-ing after it.",
+   story:[
+    "My name is Sekar. I am in my second year at SMK Katolik St. Mikael, and I love working with CNC machines.",
+    "Our school {pp|has bought} a new CNC machine this year, and I {pp|have already made} three parts with it. Our teacher, Pak Yohanes, {ppc|has been programming} CNC machines since 2010. He keeps a small notebook full of machine tips.",
+    "Last Monday our class {trap|had} a meeting with an engineer from a big factory. Before the meeting, I {pap|had never thought} about working in a factory. She told us that she {papc|had been working} with CNC machines for fifteen years before she became a manager. Her factory {pap|had started} with only two machines. Its workers {papc|had been making} parts by hand for many years before that.",
+    "Since that meeting, I {ppc|have been practising} with the CNC simulator every afternoon.",
+    "By the end of this semester, I {fp|will have made} my first full project: a small metal gear. By 2028, our school {fpc|will have been using} the new machine for two years. I hope that by the time I graduate, I {fp|will have passed} the CNC certification test. By 2030, I {fpc|will have been working} as a CNC operator for a few years."],
+   cq:[
+    ["\"Her factory had started with only two machines. Its workers had been making parts by hand for many years before that.\" What came first: making parts by hand, or the two machines?","Making parts by hand came first. The two machines came later."],
+    ["\"She had been working with CNC machines for fifteen years before she became a manager.\" How long had she been working with CNC machines before she became a manager?","For fifteen years."],
+    ["\"Pak Yohanes has been programming CNC machines since 2010.\" Does he still program CNC machines now? How do you know?","Yes. has been + V-ing + since: it started in 2010 and continues until now."],
+    ["\"By the end of this semester, I will have made my first full project.\" At the end of the semester, is the project finished? (Yes / No)","Yes. will have + V3 = already finished at that future moment."],
+    ["\"By 2028, our school will have been using the new machine for two years.\" In 2028, is the school still using the machine? (Yes / No)","Yes. will have been + V-ing shows the activity is still going on at that future moment."]],
+   d:[
+    ["Now · finished","Look! Sekar ___ (cut) the metal part. It is ready.","has cut / has just cut","Present Perfect"],
+    ["Now · how long","Sekar looks tired. She ___ (program) the machine since 8 a.m.","has been programming","Present Perfect Continuous"],
+    ["Past · finished before","When Pak Yohanes checked the machine, Sekar ___ (already / cut) the part.","had already cut","Past Perfect"],
+    ["Past · how long","Sekar ___ (program) the machine for two hours when Pak Yohanes came.","had been programming","Past Perfect Continuous"],
+    ["Future · finished before","By Friday, Sekar ___ (cut) twenty parts.","will have cut","Future Perfect"],
+    ["Future · how long","By Friday, Sekar ___ (program) the machine for ten hours this week.","will have been programming","Future Perfect Continuous"],
+    ["","Our class ___ (visit) three factories this year.","has visited","Present Perfect"],
+    ["","He was angry because he ___ (wait) for an hour.","had been waiting","Past Perfect Continuous"],
+    ["","By the time you call me, I ___ (finish) my homework.","will have finished","Future Perfect"],
+    ["","I didn't recognise my old school because they ___ (build) a new workshop.","had built","Past Perfect"]],
+   bonus:[["We have cut ten parts yesterday.","We cut ten parts yesterday."],["He had been program the machine all day.","He had been programming the machine all day."],["By Friday, they will finished the project.","By Friday, they will have finished the project."],["I have been knowing her since 2020.","I have known her since 2020."]]
+ },
+ { title:"Yosef and the Solar Panels", trap:"have",
+   trapExp:"\"We have two big ladders...\" Here have is the main verb (= to own), not a helping verb. There is no V3 or been + V-ing after it.",
+   story:[
+    "My name is Yosef. My father is an electrician, and this month I am helping him install solar panels on houses in Solo.",
+    "We {pp|have installed} panels on six houses, and I {pp|have learned} how to connect the cables safely. My father {ppc|has been doing} this job since 2007. We {trap|have} two big ladders and a lot of tools in our small truck.",
+    "Last Saturday was a long day. When we got to the last house, it was already dark. We {papc|had been working} on the roof of another house since 7 a.m. The owner of the last house was very happy. Before he called us, he {pap|had paid} very high electricity bills for years, and he {papc|had been saving} money for two years to buy the panels. Before that day, I {pap|had never stood} on such a high roof!",
+    "Since that day, I {ppc|have been reading} everything about solar energy.",
+    "Solar panels are becoming popular in Indonesia. By the end of this year, my father and I {fp|will have installed} panels on twenty houses. By 2030, many schools {fp|will have changed} to solar power. By next July, my father {fpc|will have been working} as an electrician for twenty years, and I {fpc|will have been helping} him for five years."],
+   cq:[
+    ["\"Before he called us, he had paid very high electricity bills for years.\" What happened first: the high bills or the phone call?","The high bills came first. Then the owner called them."],
+    ["\"He had been saving money for two years to buy the panels.\" How long had the owner been saving money?","For two years."],
+    ["\"My father has been doing this job since 2007.\" Does he still do this job now? How do you know?","Yes. has been + V-ing + since: it started in 2007 and continues until now."],
+    ["\"By the end of this year, my father and I will have installed panels on twenty houses.\" At the end of the year, is the work on twenty houses finished? (Yes / No)","Yes. will have + V3 = already finished at that future moment."],
+    ["\"By next July, my father will have been working as an electrician for twenty years.\" Next July, is his father still working as an electrician? (Yes / No)","Yes. will have been + V-ing shows the work is still going on at that future moment."]],
+   d:[
+    ["Now · finished","Look! Yosef ___ (install) the last solar panel. The house has power now.","has installed / has just installed","Present Perfect"],
+    ["Now · how long","Yosef is sweating. He ___ (work) on the roof since noon.","has been working","Present Perfect Continuous"],
+    ["Past · finished before","When the owner came home, Yosef ___ (already / install) the panels.","had already installed","Past Perfect"],
+    ["Past · how long","Yosef ___ (work) on the roof for three hours when the owner came home.","had been working","Past Perfect Continuous"],
+    ["Future · finished before","By 3 p.m. tomorrow, Yosef ___ (install) all the panels.","will have installed","Future Perfect"],
+    ["Future · how long","By 3 p.m. tomorrow, Yosef ___ (work) on the roof for five hours.","will have been working","Future Perfect Continuous"],
+    ["","I ___ (never / see) a solar car.","have never seen","Present Perfect"],
+    ["","The workers were tired because they ___ (carry) heavy panels all morning.","had been carrying","Past Perfect Continuous"],
+    ["","By 2030, the government ___ (build) more solar power stations.","will have built","Future Perfect"],
+    ["","My mother ___ (cook) since 5 a.m. for the party.","has been cooking","Present Perfect Continuous"]],
+   bonus:[["My father have worked here for twenty years.","My father has worked here for twenty years."],["We has been installing panels since 7 a.m.","We have been installing panels since 7 a.m."],["By noon, we will have install all the panels.","By noon, we will have installed all the panels."],["Before he called us, he has paid high bills.","Before he called us, he had paid high bills."]]
+ },
+ { title:"Toni's Robotics Team", trap:"had",
+   trapExp:"\"Last month we had a big problem.\" Here had is the main verb (= experienced / got), not a helping verb. There is no V3 or been + V-ing after it.",
+   story:[
+    "My name is Toni. I am the leader of the robotics team at SMK Katolik St. Mikael.",
+    "Our team {pp|has built} four robots, and we {pp|have won} two local competitions. Our mentor, Bu Maria, {ppc|has been guiding} the team since it started in 2019.",
+    "Last month we {trap|had} a big problem. Two days before the national competition, our robot stopped working. We {papc|had been testing} it all night, and everyone was tired. Then we found the reason: someone {pap|had connected} a cable to the wrong place. Luckily, Bu Maria {pap|had brought} a spare battery and extra cables. We fixed it, but we were nervous because we {papc|had been preparing} for this competition since January.",
+    "Since then, we {ppc|have been checking} every cable twice before each test.",
+    "Next year, we want to go to an international competition. By March, we {fp|will have built} a new, faster robot. By the time the competition starts, we {fpc|will have been training} for eight months. Bu Maria says that by then she {fpc|will have been guiding} robotics teams for eight years. I hope that by the end of next year, our team {fp|will have won} an international medal!"],
+   cq:[
+    ["\"Then we found the reason: someone had connected a cable to the wrong place.\" What happened first: connecting the cable, or finding the reason?","Someone connected the cable first. The team found the reason later."],
+    ["\"We had been testing it all night, and everyone was tired.\" Why was everyone tired?","Because they had been testing the robot all night."],
+    ["\"Bu Maria has been guiding the team since it started in 2019.\" Does she still guide the team now? How do you know?","Yes. has been + V-ing + since: it started in 2019 and continues until now."],
+    ["\"By March, we will have built a new, faster robot.\" In March, is the new robot finished? (Yes / No)","Yes. will have + V3 = already finished at that future moment."],
+    ["\"By the time the competition starts, we will have been training for eight months.\" When the competition starts, is the team still training? (Yes / No)","Yes. will have been + V-ing shows the training is still going on at that future moment."]],
+   d:[
+    ["Now · finished","Look! The team ___ (build) the robot arm. It can move now.","has built / has just built","Present Perfect"],
+    ["Now · how long","The team is tired. They ___ (test) the robot since this morning.","have been testing","Present Perfect Continuous"],
+    ["Past · finished before","When Bu Maria arrived, the team ___ (already / build) the robot arm.","had already built","Past Perfect"],
+    ["Past · how long","The team ___ (test) the robot for five hours when Bu Maria arrived.","had been testing","Past Perfect Continuous"],
+    ["Future · finished before","By Saturday, the team ___ (build) two new robot arms.","will have built","Future Perfect"],
+    ["Future · how long","By Saturday, the team ___ (test) the robot for twenty hours this week.","will have been testing","Future Perfect Continuous"],
+    ["","___ you ever ___ (win) a competition?","Have … won","Present Perfect"],
+    ["","By the time the teacher came, the students ___ (leave) the lab.","had left / had already left","Past Perfect"],
+    ["","By next year, my sister ___ (work) at the bank for ten years.","will have been working / will have worked","Future Perfect Continuous"],
+    ["","The battery was empty because the robot ___ (run) all day.","had been running","Past Perfect Continuous"]],
+   bonus:[["Our team have built four robots.","Our team has built four robots."],["I have been build robots since 2023.","I have been building robots since 2023."],["By March, we will has finished the robot.","By March, we will have finished the robot."],["We had been test the robot all night.","We had been testing the robot all night."]]
+ }
+];
+
+const TN={pp:["Present Perfect","pres","","PP"],ppc:["Present Perfect Continuous","pres","cont","PPC"],pap:["Past Perfect","past","","PaP"],papc:["Past Perfect Continuous","past","cont","PaPC"],fp:["Future Perfect","fut","","FP"],fpc:["Future Perfect Continuous","fut","cont","FPC"]};
+const FORMULA={pp:"have / has + V3",ppc:"have / has + been + V-ing",pap:"had + V3",papc:"had + been + V-ing",fp:"will have + V3",fpc:"will have + been + V-ing"};
+const C_KEY=[["Present Perfect","NOW","FINISHED (result)"],["Present Perfect Continuous","NOW","DURATION (how long)"],["Past Perfect","a PAST moment","FINISHED (result)"],["Past Perfect Continuous","a PAST moment","DURATION (how long)"],["Future Perfect","a FUTURE moment","FINISHED (result)"],["Future Perfect Continuous","a FUTURE moment","DURATION (how long)"]];
+const E_ROWS=[
+  ["Member 1","Present Perfect","something you have done, or have never done"],
+  ["Member 2","Present Perfect Continuous","something you started in the past and are still doing"],
+  ["Member 3","Past Perfect","something that had happened before you arrived at school today"],
+  ["Member 4","Past Perfect Continuous","how long you had been doing something before something else happened"],
+  ["Member 5","Future Perfect","something you will have finished by the time you graduate"],
+  ["All members","Future Perfect Continuous","how long you will have been studying at SMK Mikael by the time you graduate"]
+];
+const TENSES=[
+  ["pres","","PRESENT","Present Perfect","have / has","V3","haven't / hasn't + V3","Have / Has + S + V3?","Experience (ever, never); a finished action with a result now; from the past until now.","ever, never, already, just, yet, since, for","I have already learned a lot."],
+  ["pres","cont","PRESENT","Present Perfect Continuous","have / has been","V-ing","haven't / hasn't been + V-ing","Have / Has + S + been + V-ing?","An activity that started in the past and is still going on now. Focus: how long.","for, since, all day, how long","Pak Darto has been repairing motorcycles since 1998."],
+  ["past","","PAST","Past Perfect","had","V3","hadn't + V3","Had + S + V3?","The earlier of two past events, like a flashback in a film.","before, after, when, by the time, already, never","When I arrived, the mechanics had already opened the workshop."],
+  ["past","cont","PAST","Past Perfect Continuous","had been","V-ing","hadn't been + V-ing","Had + S + been + V-ing?","How long an activity had been going on before a moment in the past.","for, since, how long, when, before","The customer had been waiting outside since 6 o'clock."],
+  ["fut","","FUTURE","Future Perfect","will have","V3","won't have + V3","Will + S + have + V3?","Something that will be finished before a moment in the future.","by, by the time, before, in ... time","By the end of this month, I will have finished my first project."],
+  ["fut","cont","FUTURE","Future Perfect Continuous","will have been","V-ing","won't have been + V-ing","Will + S + have been + V-ing?","How long an activity will have been going on at a moment in the future.","by ... for, by the time ... for","By December, I will have been working here for three months."]
+];
+const MIST=[
+  ["I have been study since 7 a.m.","I have been studying since 7 a.m.","After been you need V-ing."],
+  ["She has went home.","She has gone home.","After have / has / had you need V3, not V2."],
+  ["By 2030, he will has finished.","By 2030, he will have finished.","After will, always use have (never has)."],
+  ["I have been knowing him for years.","I have known him for years.","know, like, want, and have (= to own) are not used in the continuous."],
+  ["We have lived here since three years.","We have lived here for three years.","for + a length of time, since + a starting point."],
+  ["When I arrived, the bus has left.","When I arrived, the bus had left.","Two past events: the earlier one takes had + V3."]
+];
+
+/* ---------- lesson rendering ---------- */
+$("#tcards").innerHTML=TENSES.map(([t,c,when,name,aux,vf,neg,q,use,sig,ex])=>
+  `<div class="tcard tc-${t} ${c?"tc-cont":""}"><div class="tch"><span>${when}</span><h4>${name}</h4></div>
+   <div class="tcb"><div class="fm"><span class="aux">${esc(aux)}</span> + <span class="vf">${vf}</span></div>
+   <p><b>−</b> ${esc(neg)}<br><b>?</b> ${esc(q)}</p>
+   <p><b>Use:</b> ${esc(use)}</p><p><b>Signals:</b> <i>${esc(sig)}</i></p><p class="exs">${esc(ex)}</p></div></div>`).join("");
+
+const mist=$("#mist");
+MIST.forEach(([w,c,r])=>{
+  const b=document.createElement("button"); b.className="mcard";
+  b.innerHTML=`<span class="w">${esc(w)}</span><span class="tap">What's wrong? Tap to check.</span><span class="fix"><span class="c">${esc(c)}</span><br><span class="r">${esc(r)}</span></span>`;
+  b.addEventListener("click",()=>b.classList.toggle("open"));
+  mist.appendChild(b);
+});
+
+/* ---------- answer keys per group ---------- */
+function storyKeyHTML(W){
+  return W.story.map(p=>"<p>"+esc(p).replace(/\{(\w+)\|([^}]+)\}/g,(m,c,t)=>
+    c==="trap"?`<span class="k-trap">${t}<sup>not a helping verb</sup></span>`:`<span class="k k-${TN[c][1]} ${TN[c][2]?"k-cont":""}">${t}<sup>${TN[c][3]}</sup></span>`)+"</p>").join("");
+}
+function phrasesBy(W){
+  const out={pp:[],ppc:[],pap:[],papc:[],fp:[],fpc:[]};
+  W.story.forEach(p=>p.replace(/\{(\w+)\|([^}]+)\}/g,(m,c,t)=>{ if(out[c]) out[c].push(t); return m; }));
+  return out;
+}
+function renderKeys(g){
+  $$("#gsel button").forEach(b=>b.setAttribute("aria-pressed",+b.dataset.g===g));
+  const host=$("#keys");
+  if(!g){ host.innerHTML=`<div class="keyhint">Tap your group number to see your answer keys.</div>`; return; }
+  const W=WS[g-1], P=phrasesBy(W);
+  host.innerHTML=`
+  <p class="keytitle">Group ${g}: ${esc(W.title)}</p>
+  <details><summary>Answer key: Parts A & B</summary><div class="dbody">
+    <div class="legend"><span class="k k-pres">Present</span><span class="k k-past">Past</span><span class="k k-fut">Future</span><span class="k k-pres k-cont">dashed line = Continuous</span></div>
+    <div class="story">${storyKeyHTML(W)}</div>
+    <p style="margin-top:10px"><b>A1.</b> 12 verb phrases (2 for each tense).</p>
+    <p><b>A2.</b> ${esc(W.trapExp)}</p>
+    <h4>Part B</h4>
+    <div class="scroll-x"><table class="tbl"><thead><tr><th>Tense name</th><th>Formula</th><th>Examples from the text</th></tr></thead><tbody>
+    ${Object.keys(P).map(c=>`<tr><td><b>${TN[c][0]}</b></td><td>${FORMULA[c]}</td><td>${P[c].map(esc).join(" · ")}</td></tr>`).join("")}</tbody></table></div>
+    <p class="small" style="margin-top:8px">Your pattern numbers may be in a different order. What matters is that the examples, the formula, and the name match.</p>
+  </div></details>
+  <details><summary>Answer key: Part C</summary><div class="dbody">
+    <div class="scroll-x"><table class="tbl"><thead><tr><th>Tense</th><th>It looks back from...</th><th>The focus is...</th></tr></thead><tbody>
+    ${C_KEY.map(r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join("")}</tbody></table></div>
+    <ol class="keylist" style="margin-top:12px">${W.cq.map(q=>`<li>${esc(q[0])}<br><b>${esc(q[1])}</b></li>`).join("")}</ol>
+  </div></details>
+  <details><summary>Answer key: Part D & Bonus</summary><div class="dbody">
+    <ol class="keylist">${W.d.map(d=>`<li>${esc(d[1]).replace(/___/g,"<b>"+esc(d[2])+"</b>")} <span class="small">(${d[3]})</span></li>`).join("")}</ol>
+    <p class="small">When two answers are shown with a slash ( / ), both are correct.</p>
+    <h4>Bonus</h4>
+    <ol class="keylist">${W.bonus.map(b=>`<li><s>${esc(b[0])}</s><br><b>${esc(b[1])}</b></li>`).join("")}</ol>
+  </div></details>`;
+}
+$("#gsel").insertAdjacentHTML("beforeend",[1,2,3,4,5,6].map(n=>`<button data-g="${n}" aria-pressed="false" aria-label="Group ${n}">${n}</button>`).join(""));
+$$("#gsel button").forEach(b=>b.addEventListener("click",()=>{ S.keyGroup=+b.dataset.g; save(); renderKeys(S.keyGroup); }));
+renderKeys(S.keyGroup||0);
+
+$("#qz").innerHTML=CONFIG.quizizz
+  ?`<a class="btn primary" href="${esc(CONFIG.quizizz)}" target="_blank" rel="noopener">Open Quizizz →</a>`
+  :`<p class="small">Your class leader will give you the Quizizz link or code.</p>`;
+
+/* =================== MEETING 2 DATA =================== */
+const EXAMPLE={
+  then:[["S",0,"The first mobile phone {appeared} in 1973."],["P",0,"Before 1973, nobody [had] {used} a mobile phone."],["P",1,"Before smartphones appeared, people [had] {used} paper maps."],["PC",0,"Before mobile phones appeared, people [had been] {using} phones with cables for almost 100 years."],["PC",1,"People [had been] {writing} letters for centuries before SMS appeared."]],
+  now:[["S",0,"Today, many people {use} smartphones every day."],["P",0,"Since 2007, smartphones [have] {changed} the way people study."],["P",1,"Many students [have already] {joined} online classes on their phones."],["PC",0,"People [have been] {using} mobile phones for more than 50 years."],["PC",1,"I [have been] {using} my phone since junior high school."]],
+  next:[["S",0,"In the future, phones [will] {be} smarter."],["P",0,"By 2035, phones [will have] {become} even thinner."],["P",1,"By the time we graduate, we [will have] {downloaded} hundreds of apps."],["PC",0,"By 2030, people [will have been] {using} smartphones for 23 years."],["PC",1,"By 2040, AI assistants [will have been] {helping} us for many years."]]
+};
+const fmtEx=s=>esc(s).replace(/\[([^\]]+)\]/g,'<span class="a">$1</span>').replace(/\{([^}]+)\}/g,'<span class="v">$1</span>');
+$$("[data-ex]").forEach(ul=>{
+  ul.innerHTML=EXAMPLE[ul.dataset.ex].map(([c,own,t])=>`<li><span class="chip ${c}">${c}</span><span class="${own?"own":""}">${fmtEx(t)}</span></li>`).join("");
+});
+$("#flap").addEventListener("click",e=>e.currentTarget.classList.toggle("open"));
+
+const PHONE={id:"phone",name:"Mobile Phones",icon:"📱",year:"1973",first:"1876 – telephone – Alexander Graham Bell · 1973 – first mobile phone call – Motorola · 2007 – first iPhone",before:"phones with cables, letters, public phones",now:"most students have a smartphone; online classes, maps, quizzes",future:"folding phones, AI assistants",fun:"The first mobile phone weighed about 1 kg."};
+const TOPICS=[
+  {id:"moto",name:"Motorcycles",icon:"🏍️",year:"1885",first:"1885 – first motorcycle – Gottlieb Daimler, Germany",before:"horses, bicycles, walking",now:"one of the most popular vehicles in Indonesia; online ojek",future:"electric motorcycles, no petrol",fun:"The first motorcycle had a wooden frame."},
+  {id:"cars",name:"Cars",icon:"🚗",year:"1886",first:"1886 – first petrol car – Karl Benz, Germany",before:"horse carriages",now:"many families have a car; cars with cameras and sensors",future:"electric and self-driving cars",fun:"The first car had only three wheels."},
+  {id:"comp",name:"Computers",icon:"💻",year:"1946",first:"1946 – ENIAC, one of the first electronic computers – USA · 1981 – IBM Personal Computer",before:"typewriters, calculating by hand",now:"laptops at school and at work; design software (CAD)",future:"AI helpers in every computer",fun:"ENIAC filled a whole room."},
+  {id:"net",name:"The Internet",icon:"🌐",year:"1991",first:"1969 – ARPANET, the first network – USA · 1991 – World Wide Web – Tim Berners-Lee",before:"letters, libraries, newspapers",now:"online classes, maps, social media",future:"fast internet everywhere, even in small villages",fun:"The first website is still online today."},
+  {id:"tv",name:"Television",icon:"📺",year:"1926",first:"1926 – first TV demonstration – John Logie Baird, UK · 1962 – TVRI, first TV station in Indonesia",before:"radio, newspapers",now:"smart TVs, YouTube on TV",future:"screens you can roll up like paper",fun:"TVRI started broadcasting for the 1962 Asian Games in Jakarta."},
+  {id:"cam",name:"Cameras",icon:"📷",year:"1826",first:"1826 – first photograph – Nicéphore Niépce, France · 1975 – first digital camera – Kodak",before:"painted portraits",now:"cameras in every phone",future:"AI cameras that edit photos by themselves",fun:"The first photo needed many hours of light."},
+  {id:"robot",name:"Factory Robots",icon:"🤖",year:"1961",first:"1961 – Unimate, first industrial robot – General Motors, USA",before:"workers did every job by hand",now:"robots weld and paint cars in factories",future:"robots and humans working side by side",fun:"Unimate lifted hot metal parts that were dangerous for people."},
+  {id:"plane",name:"Airplanes",icon:"✈️",year:"1903",first:"1903 – first powered flight – Wright brothers, USA",before:"ships, trains",now:"millions of people fly every day",future:"electric planes",fun:"The first flight lasted only 12 seconds."},
+  {id:"train",name:"Trains in Indonesia",icon:"🚆",year:"1867",first:"1867 – first railway in Indonesia – Semarang · 2021 – KRL Solo–Yogyakarta · 2023 – Whoosh, high-speed train Jakarta–Bandung",before:"horse carts, walking",now:"KRL, fast intercity trains",future:"more high-speed trains",fun:"Whoosh can go faster than 300 km/h."},
+  {id:"games",name:"Video Games",icon:"🎮",year:"1972",first:"1972 – Pong, one of the first popular video games – USA",before:"board games, outdoor games",now:"mobile games, esports",future:"virtual reality games",fun:"Pong was a simple tennis game with two lines and a dot."}
+];
+const factHTML=t=>`<p><b>First:</b> ${esc(t.first)}</p><p><b>Before it:</b> ${esc(t.before)}</p><p><b>Now:</b> ${esc(t.now)}</p><p><b>Future idea:</b> ${esc(t.future)}</p><p><b>Did you know?</b> ${esc(t.fun)}</p>`;
+
+function renderBoard(){
+  const used=Object.values(S.claims);
+  $("#board").innerHTML=
+    `<div class="tp example"><div class="tp-h"><span class="em">${PHONE.icon}</span><div><b>${PHONE.name}</b><span class="y">Example only</span></div></div>
+     <details><summary>Fact card</summary><div class="fcd">${factHTML(PHONE)}</div></details></div>`+
+    TOPICS.map(t=>{
+      const g=S.claims[t.id]||"";
+      const opts=[1,2,3,4,5,6].map(n=>`<option value="${n}" ${g==n?"selected":""} ${used.includes(String(n))&&g!=n?"disabled":""}>${n}</option>`).join("");
+      return `<div class="tp ${g?"taken":""}"><div class="tp-h"><span class="em">${t.icon}</span><div><b>${t.name}</b><span class="y">from ${t.year}</span></div></div>
+        <label>Group <select data-t="${t.id}" aria-label="Group for ${t.name}"><option value="">–</option>${opts}</select>${g?`<span class="badge">Group ${g}</span>`:""}</label>
+        <details><summary>Fact card</summary><div class="fcd">${factHTML(t)}</div></details></div>`;
+    }).join("");
+  $$("#board select").forEach(sel=>sel.addEventListener("change",()=>{
+    const id=sel.dataset.t, v=sel.value;
+    if(v){ Object.keys(S.claims).forEach(k=>{ if(S.claims[k]===v) delete S.claims[k]; }); S.claims[id]=v; }
+    else delete S.claims[id];
+    save(); renderBoard();
+  }));
+}
+renderBoard();
+$("#boardReset").addEventListener("click",()=>{ if(confirm("Reset all topic choices?")){ S.claims={}; save(); renderBoard(); } });
+
+/* =================== WORD DOCUMENTS (black & white) =================== */
+const box=inner=>`<table class="bx"><tr><td style="border:1pt solid #000000;padding:8pt 10pt">${inner}</td></tr></table>`;
+const lines=n=>`<table class="ln">${Array.from({length:n},()=>`<tr style="height:22pt"><td style="border:none;border-bottom:1pt solid #000000">&nbsp;</td></tr>`).join("")}</table>`;
+const hdr=(kick,title,n)=>`<table class="hdr"><tr><td style="border:none;border-bottom:2pt solid #000000;padding:0 0 6pt 0"><p class="kick">${kick}</p><p class="ttl">${title}</p><p class="sch">SMK Katolik St. Mikael Surakarta</p></td>${n?`<td style="width:70pt;border:2pt solid #000000;text-align:center;vertical-align:middle"><p class="kick" style="text-align:center">GROUP</p><p class="gn" style="text-align:center">${n}</p></td>`:""}</tr></table>`;
+const DOC_CSS=
+  "@page Section1{size:595.3pt 841.9pt;margin:40pt 46pt 40pt 46pt;}"+
+  "div.Section1{page:Section1;}"+
+  "body{font-family:Calibri,Arial,sans-serif;font-size:11pt;color:#000000;}"+
+  "p{margin:0 0 5pt 0;}"+
+  "h2{font-family:Calibri,Arial,sans-serif;font-size:13.5pt;color:#000000;margin:14pt 0 5pt 0;padding-bottom:2pt;border-bottom:1.5pt solid #000000;}"+
+  "h3{font-family:Calibri,Arial,sans-serif;font-size:12.5pt;color:#000000;margin:0;}"+
+  "table{border-collapse:collapse;width:100%;margin:0 0 6pt 0;}"+
+  "td,th{border:1pt solid #000000;padding:4pt 6pt;vertical-align:top;font-size:10.5pt;color:#000000;}"+
+  "th{background:#FFFFFF;color:#000000;text-align:left;font-weight:bold;}"+
+  ".kick{font-size:8.5pt;font-weight:bold;letter-spacing:1pt;margin:0;}"+
+  ".ttl{font-size:22pt;font-weight:bold;margin:2pt 0;}"+
+  ".sch{font-size:9.5pt;margin:0;}"+
+  ".gn{font-size:28pt;font-weight:bold;margin:0;}"+
+  ".sm{font-size:8.5pt;}"+
+  ".stt{font-size:13pt;font-weight:bold;margin-bottom:4pt;}"+
+  ".stp{font-size:12pt;line-height:200%;margin:0 0 4pt 0;}"+
+  ".opt{font-size:10pt;letter-spacing:.5pt;}";
+function docWrap(title,pages){
+  const body=pages.map((p,i)=>(i?'<br clear="all" style="page-break-before:always">':"")+p).join("");
+  return '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head><meta charset="utf-8"><title>'+title+'</title>'+
+    '<!--[if gte mso 9]><xml><w:WordDocument><w:View>Print</w:View><w:Zoom>100</w:Zoom><w:DoNotOptimizeForBrowser/></w:WordDocument></xml><![endif]-->'+
+    '<style>'+DOC_CSS+'</style></head><body><div class="Section1">'+body+'</div></body></html>';
+}
+function download(name,html){
+  const blob=new Blob(["\ufeff",html],{type:"application/msword"});
+  const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=name;
+  document.body.appendChild(a); a.click();
+  setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); },1500);
+}
+
+/* ---------- Meeting 1 worksheet (different for each group) ---------- */
+const storyPlain=W=>W.story.map(p=>esc(p).replace(/\{\w+\|([^}]+)\}/g,"$1"));
+function wsHTML(n){
+  const W=WS[n-1];
+  let h=hdr("GROUP WORKSHEET · ENGLISH UNIT 4","The Perfect Detectives",n);
+  h+=`<p>Class: ______________________ &nbsp;&nbsp;&nbsp; Date: ______________________</p>`;
+  h+=`<h2>PART A · Read and find</h2>`;
+  h+=`<p>One member reads the text aloud. Then your group <b>underlines</b> every verb that uses <b>have, has, had,</b> or <b>will have</b> as a helping verb. Underline the whole verb phrase, including <i>been</i>, the <i>-ing</i> verb, the V3, and words like <i>already</i>, <i>just</i>, <i>never</i>, or <i>not</i> in the middle.</p>`;
+  h+=box(`<p class="stt">${esc(W.title)}</p>`+storyPlain(W).map(p=>`<p class="stp">${p}</p>`).join(""));
+  h+=`<p><b>A1.</b> How many verb phrases did you underline? ____________</p>`;
+  h+=`<p><b>A2.</b> Be careful! One <b>${W.trap}</b> in the text is NOT a helping verb. Write the sentence and explain why.</p>${lines(2)}`;
+  h+=`<h2>PART B · Sort and name</h2>`;
+  h+=`<p>Copy the verb phrases you found into the table. Each pattern has <b>exactly two</b> examples in the text. Put together the phrases that have exactly the same form, write the formula, then name the tense using the Word Bank.</p>`;
+  h+=box(`<b>Example of a formula:</b> &nbsp; am / is / are + V-ing &nbsp;→&nbsp; Present Continuous<br><b>WORD BANK:</b> &nbsp; PRESENT &nbsp;·&nbsp; PAST &nbsp;·&nbsp; FUTURE &nbsp;·&nbsp; PERFECT &nbsp;·&nbsp; PERFECT CONTINUOUS<br><span class="sm">Combine the words, for example "_______ Perfect" or "_______ Perfect Continuous".</span>`);
+  h+=`<table><tr><th style="width:40pt">Pattern</th><th>Example 1 (from the text)</th><th>Example 2 (from the text)</th><th>Formula</th><th>Tense name</th></tr>${[1,2,3,4,5,6].map(i=>`<tr style="height:32pt"><td><b>${i}</b></td><td></td><td></td><td></td><td></td></tr>`).join("")}</table>`;
+  h+=`<h2>PART C · Look back from where?</h2>`;
+  h+=`<p>Every perfect tense stands at one point in time and looks back. For each pattern in Part B, <b>circle</b> the answers.</p>`;
+  h+=`<table><tr><th style="width:40pt">Pattern</th><th>Tense name (copy from Part B)</th><th>It looks back from...</th><th>The focus is...</th></tr>${[1,2,3,4,5,6].map(i=>`<tr style="height:28pt"><td><b>${i}</b></td><td></td><td class="opt">NOW &nbsp;·&nbsp; a PAST moment &nbsp;·&nbsp; a FUTURE moment</td><td class="opt">FINISHED (result) &nbsp;·&nbsp; DURATION (how long)</td></tr>`).join("")}</table>`;
+  h+=`<p>Answer these questions about the text.</p>`;
+  W.cq.forEach((q,i)=>{ h+=`<p><b>C${i+1}.</b> ${esc(q[0])}</p>${lines(1)}`; });
+  h+=`<h2>PART D · Use the patterns</h2>`;
+  h+=`<p>Complete each sentence with the correct verb form, then write the tense name. Numbers 1–6 use the same action in six different tenses: look at the time clues!</p>`;
+  h+=`<table><tr><th style="width:24pt">No</th><th>Sentence</th><th style="width:130pt">Tense name</th></tr>${W.d.map((d,i)=>`<tr style="height:30pt"><td><b>${i+1}</b></td><td>${d[0]?`<span class="sm"><b>[${d[0]}]</b></span><br>`:""}${esc(d[1]).replace(/___/g,"<b>__________________</b>").replace(/\(([^)]+)\)/g,"<i>($1)</i>")}</td><td></td></tr>`).join("")}</table>`;
+  h+=`<h2>PART E · Make it yours</h2>`;
+  h+=`<p>Each member writes ONE true sentence about himself or herself using the given tense. Check every sentence together. Write the last sentence as a group.</p>`;
+  h+=`<table><tr><th style="width:80pt">Writer</th><th style="width:130pt">Tense & idea</th><th>Sentence</th></tr>${E_ROWS.map(r=>`<tr style="height:40pt"><td><b>${r[0]}</b><br><span class="sm">name: ..............</span></td><td><b>${r[1]}</b><br><span class="sm">${esc(r[2])}</span></td><td></td></tr>`).join("")}</table>`;
+  h+=`<h2>PART F · Our discoveries</h2>`;
+  h+=`<p><b>F1.</b> All perfect tenses use the helping verb ______________ (in the form have / has / had / will have).</p>`;
+  h+=`<p><b>F2.</b> When we see <b>been + V-ing</b>, the sentence talks about ______________________________.</p>`;
+  h+=`<p><b>F3.</b> When there is no <i>been</i>, the main verb is in the ________ form, and the focus is on ______________________.</p>`;
+  h+=`<p><b>F4.</b> The tense that was completely new for our group is ________________________. We think it means:</p>${lines(2)}`;
+  h+=`<h2>BONUS · Fix the mistakes</h2>`;
+  h+=`<p class="sm">Do this part if your group finishes early.</p>`;
+  h+=`<table><tr><th style="width:24pt">No</th><th>Wrong sentence</th><th>Correct sentence</th></tr>${W.bonus.map((b,i)=>`<tr style="height:28pt"><td><b>${i+1}</b></td><td>${esc(b[0])}</td><td></td></tr>`).join("")}</table>`;
+  return h;
+}
+$$("[data-dl]").forEach(b=>b.addEventListener("click",()=>{
+  const v=b.dataset.dl;
+  if(v==="all") download("Worksheet_PerfectDetectives_Group1-6.doc",docWrap("The Perfect Detectives",[1,2,3,4,5,6].map(wsHTML)));
+  else download(`Worksheet_PerfectDetectives_Group${v}.doc`,docWrap("The Perfect Detectives",[wsHTML(+v)]));
+}));
+
+/* ---------- Meeting 2 planner ---------- */
+const BL="________________", SB="________";
+const FRAMES={
+  then:[["Simple Past","g",`The first ${BL} <i>(topic)</i> ${BL} <i>(appear)</i> in ${SB} <i>(year)</i>.`],
+        ["Past Perfect","g",`Before ${SB} <i>(year)</i>, nobody ${BL} <i>(use / see / ride / watch)</i> ${BL} <i>(topic)</i>.`],
+        ["Past Perfect","o","Clue: <b>before ________ appeared</b>"],
+        ["Past Perfect Continuous","g",`Before ${BL} <i>(topic)</i> appeared, people ${BL} <i>(use)</i> ${BL} <i>(the old way)</i> for many years.`],
+        ["Past Perfect Continuous","o","Clue: <b>for ________ years / for centuries</b>"]],
+  now:[["Simple Present","g",`Today, many people ${BL} <i>(use)</i> ${BL} <i>(topic)</i> every day.`],
+       ["Present Perfect","g",`Since ${SB} <i>(year)</i>, ${BL} <i>(topic)</i> ${BL} <i>(change)</i> the way people ${BL} <i>(live / work / study / travel)</i>.`],
+       ["Present Perfect","o","Clue: <b>already / just / never</b>"],
+       ["Present Perfect Continuous","g",`People ${BL} <i>(use)</i> ${BL} <i>(topic)</i> for more than ${SB} years.`],
+       ["Present Perfect Continuous","o","Clue: <b>since ________ / for ________</b>"]],
+  next:[["Simple Future","g",`In the future, ${BL} <i>(topic)</i> ${BL} <i>(be)</i> ${BL} <i>(cheaper / faster / smarter)</i>.`],
+        ["Future Perfect","g",`By 2035, ${BL} <i>(topic)</i> ${BL} <i>(become)</i> even ${BL}.`],
+        ["Future Perfect","o","Clue: <b>by the time we graduate / by 2040</b>"],
+        ["Future Perfect Continuous","g",`By 2030, people ${BL} <i>(use)</i> ${BL} <i>(topic)</i> for ${SB} years.`],
+        ["Future Perfect Continuous","o","Clue: <b>by ________, ... for ________ years</b>"]]
+};
+const ZN={then:"THEN",now:"NOW",next:"NEXT"};
+const builderCell=`<table style="margin:4pt 0"><tr><th style="font-size:8.5pt">Subject</th><th style="font-size:8.5pt">Helping verb</th><th style="font-size:8.5pt">Verb form</th><th style="font-size:8.5pt">The rest</th></tr><tr style="height:22pt"><td></td><td></td><td></td><td></td></tr></table><span class="sm">Full sentence:</span>${lines(1)}`;
+function planHTML(n){
+  let h=hdr("POSTER PLANNER · ENGLISH UNIT 4","Then, Now & Next",n);
+  h+=`<p>Our topic: ______________________________ &nbsp;&nbsp; Class: ______________</p>`;
+  h+=`<table><tr><th style="width:24pt">No</th><th>Member's name</th></tr>${[1,2,3,4,5].map(i=>`<tr style="height:20pt"><td>${i}</td><td></td></tr>`).join("")}</table>`;
+  h+=box(`<b>YOUR TASK</b><br>Make a poster about how your topic has changed: <b>THEN, NOW, and NEXT</b>. Your poster needs <b>15 sentences</b> (5 in each zone) and <b>one picture with a caption</b> in each zone. Plan everything on this sheet today. Next meeting, you will make the poster.<br><span class="sm">Change small words if you need to (a, the, -s). Look at the Mobile Phones example poster on the screen.</span>`);
+
+  h+=`<h2>STEP 1 · Fact notes</h2><p>Copy the important facts from your fact card.</p>`;
+  h+=`<table>${["First year, who, where","Before it, people used...","Today...","Future idea","Did you know? (one surprising fact)"].map(l=>`<tr style="height:30pt"><td style="width:150pt"><b>${l}</b></td><td></td></tr>`).join("")}</table>`;
+
+  h+=`<h2>STEP 2 · Write your 15 sentences</h2>`;
+  h+=box(`<b>Guided</b> = complete the frame. Write the full verb phrase (helping verb + verb form).<br><b>Your own ✎</b> = write a new sentence with a fact from your fact card and the clue. Use the sentence builder.`);
+  Object.keys(FRAMES).forEach(z=>{
+    h+=`<table><tr><td style="border:2pt solid #000000;padding:4pt 8pt"><h3>${ZN[z]}</h3></td></tr></table>`;
+    h+=`<table><tr><th style="width:24pt">No</th><th style="width:120pt">Tense</th><th>Sentence</th></tr>${FRAMES[z].map((f,i)=>`<tr style="height:${f[1]==="g"?"34pt":"30pt"}"><td><b>${i+1}</b></td><td><b>${f[0]}</b><br><span class="sm">${f[1]==="g"?"Guided":"Your own ✎"}</span></td><td>${f[1]==="g"?f[2]:f[2]+builderCell}</td></tr>`).join("")}</table>`;
+  });
+
+  h+=`<h2>STEP 3 · Pictures and captions</h2>`;
+  h+=`<table><tr><th style="width:50pt">Zone</th><th>Picture idea</th><th style="width:80pt">Printed or drawn?</th><th style="width:80pt">Who brings it?</th><th>Caption</th></tr>${["THEN","NOW","NEXT"].map(z=>`<tr style="height:34pt"><td><b>${z}</b></td><td></td><td></td><td></td><td></td></tr>`).join("")}</table>`;
+
+  h+=`<h2>STEP 4 · "Find the tenses" questions</h2>`;
+  h+=`<p>Write 3 questions for people who read your poster. Ideas: "Find a sentence with ______ + ______." · "Which year does the ______ sentence talk about?" · "Find a ______ sentence with since."</p>`;
+  h+=`<table><tr><th style="width:24pt">No</th><th>Question</th><th style="width:170pt">Answer</th></tr>${[1,2,3].map(i=>`<tr style="height:30pt"><td><b>${i}</b></td><td></td><td></td></tr>`).join("")}</table>`;
+
+  h+=`<h2>STEP 5 · Peer check</h2>`;
+  h+=`<p>Another group checks all 15 sentences and ticks each box. Circle any mistake with a pencil.</p>`;
+  h+=box(`☐ Every perfect sentence has had / have / has / will have.<br>☐ After had / have / has / will have, the verb is V3.<br>☐ Every perfect continuous sentence has been + V-ing.<br>☐ The simple sentences use V2 (past), V1 / V1 + s (present), or will + V1 (future).<br>☐ The time words match the zone (THEN = past, NOW = present, NEXT = future).<br><br>Checked by Group ______ &nbsp;&nbsp;&nbsp; Mistakes found: ______`);
+
+  h+=`<h2>STEP 6 · Layout sketch</h2>`;
+  h+=`<p>Draw boxes to show where everything goes: title, timeline with years, THEN, NOW, NEXT (sentences + picture + caption), Did you know?, Find the tenses flap, names. Write notes for the colours: helping verbs in red, main verbs in purple.</p>`;
+  h+=`<table><tr style="height:300pt"><td style="border:1.5pt dashed #000000">&nbsp;</td></tr></table>`;
+
+  h+=`<h2>STEP 7 · Who brings what to Meeting 3?</h2>`;
+  h+=`<table><tr><th>Item</th><th style="width:200pt">Who brings it?</th></tr>${["Poster board or manila paper (at least A3)","Markers: red, purple, and other colours","The three pictures","Glue or tape, scissors, a ruler","This planner"].map(t=>`<tr style="height:22pt"><td>${t}</td><td></td></tr>`).join("")}</table>`;
+  h+=box(`<b>Finished?</b> Take clear photos of every page of this planner. One representative uploads them to Google Classroom. File name: <b>Group${n}_Topic_Draft</b> (example: Group${n}_Motorcycles_Draft). The group leader keeps this planner for Meeting 3.`);
+  return h;
+}
+$$("[data-pl]").forEach(b=>b.addEventListener("click",()=>{
+  const v=b.dataset.pl;
+  if(v==="all") download("PosterPlanner_ThenNowNext_Group1-6.doc",docWrap("Poster Planner",[1,2,3,4,5,6].map(planHTML)));
+  else download(`PosterPlanner_ThenNowNext_Group${v}.doc`,docWrap("Poster Planner",[planHTML(+v)]));
+}));
+
+/* ---------- fact cards ---------- */
+function factCardDoc(t,example){
+  return `<table><tr style="page-break-inside:avoid"><td colspan="2" style="border:2pt solid #000000;padding:6pt 10pt"><h3>${esc(t.name)}${example?" (EXAMPLE, not for choosing)":""}</h3></td></tr>
+    ${[["First",t.first],["Before it",t.before],["Now",t.now],["Future idea",t.future],["Did you know?",t.fun]].map(r=>`<tr style="page-break-inside:avoid"><td style="width:90pt"><b>${r[0]}</b></td><td>${esc(r[1])}</td></tr>`).join("")}</table>`;
+}
+const CUT=`<p style="margin:0">&nbsp;</p><p style="margin:0;text-align:center;font-size:9pt;border-top:1pt dashed #000000;padding-top:3pt">✂ &nbsp;cut here</p><p style="margin:0">&nbsp;</p>`;
+$$("[data-fc]").forEach(b=>b.addEventListener("click",()=>{
+  let h=hdr("FACT CARDS · ENGLISH UNIT 4","Then, Now & Next","");
+  h+=`<p class="sm">Cut along the dashed lines. Give each group the card for its topic.</p><p>&nbsp;</p>`;
+  h+=[factCardDoc(PHONE,true)].concat(TOPICS.map(t=>factCardDoc(t,false))).join(CUT);
+  download("FactCards_ThenNowNext.doc",docWrap("Fact Cards",[h]));
+}));
+
+/* ---------- init ---------- */
+applyLocks();
+show(startHash==="#guru"?"p1":(startHash||"#p1").slice(1));
+})();
+</script>
+</body>
+</html>
