@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Semester 1 Review · Nine Tenses · SMK Mikael</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --outer:#140A1E;--paper:#FBF7F1;--paper2:#F3ECF8;--card:#FFFFFF;--ink:#1D1428;--mute:#6E6480;--line:#E6DDEC;
+  --plum:#4A1A6B;--plum-ink:#4A1A6B;--vchip:#4A1A6B;--violet:#8A4FC4;--red:#B3122E;--red-ink:#B3122E;
+  --lav:#EEE4F8;--redsoft:#FBE6EA;--ok:#1F7A4D;--oksoft:#E3F4EA;
+  --f0:#4A1A6B;--f1:#8A4FC4;--f2:#B3122E;
+  --serif:"Fraunces",Georgia,serif;--sans:"Plus Jakarta Sans",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace;
+}
+:root[data-theme="dark"]{
+  --outer:#07030C;--paper:#160F20;--paper2:#211731;--card:#1C1429;--ink:#F2ECF9;--mute:#B1A5C6;--line:#33284A;
+  --plum-ink:#CDB0F2;--vchip:#7B4FB5;--red-ink:#FF8A98;--lav:#2C2042;--redsoft:#3A1520;--ok:#6FD6A2;--oksoft:#133225;
+  --f0:#9A6BD6;--f1:#C9A6F2;--f2:#E8485E;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--outer);color:var(--ink);font-family:var(--sans);overflow:hidden;-webkit-font-smoothing:antialiased}
+button{font:inherit;cursor:pointer;color:inherit}
+:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+
+/* ===== stage ===== */
+#vp{position:fixed;left:0;right:0;top:0;bottom:56px;display:flex;align-items:center;justify-content:center}
+#frame{position:relative;width:calc(1280px*var(--s,1));height:calc(720px*var(--s,1))}
+#stage{position:absolute;left:0;top:0;width:1280px;height:720px;transform:scale(var(--s,1));transform-origin:0 0;border-radius:12px;overflow:hidden;box-shadow:0 30px 90px rgba(0,0,0,.5)}
+.sl{position:absolute;inset:0;display:none;flex-direction:column;padding:34px 64px 58px 86px;background:var(--paper);color:var(--ink)}
+.sl.on{display:flex}
+.sl::before{content:"";position:absolute;left:0;top:0;bottom:0;width:14px;background:var(--band,var(--plum))}
+.sl::after{content:"";position:absolute;left:14px;top:0;bottom:0;width:1px;background:var(--line)}
+.sl .notes{display:none}
+
+/* ===== header / type ===== */
+.hd{display:flex;justify-content:space-between;align-items:center;gap:20px;min-height:46px}
+.kk{display:inline-flex;align-items:center;gap:10px;font:700 12.5px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.kk i{width:12px;height:12px;border-radius:3px;background:var(--band,var(--plum))}
+.loc{display:grid;grid-template-columns:repeat(3,14px);gap:4px}
+.loc span{width:14px;height:14px;border-radius:4px;background:var(--line);cursor:pointer}
+.loc span.on{background:var(--band)}
+.loc span:hover{outline:2px solid var(--band)}
+h1,h2{font-family:var(--serif);margin:0;letter-spacing:-.02em}
+h2{font-weight:800;font-size:48px;line-height:1.02;margin-top:6px}
+h2 em,h1 em{font-style:italic;font-weight:600;color:var(--red-ink)}
+.lede{font-size:19px;color:var(--mute);margin:8px 0 0;max-width:68ch;line-height:1.45}
+.body{flex:1;min-height:0;margin-top:20px;display:flex;flex-direction:column;gap:14px;overflow:auto;scrollbar-width:thin;padding-right:4px}
+.ft{position:absolute;left:86px;right:64px;bottom:20px;display:flex;justify-content:space-between;font:700 11.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 20px}
+.card h3{margin:0 0 8px;font:700 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.small{font-size:15px;color:var(--mute)}
+.a{color:var(--red-ink);font-weight:700}
+.b{color:var(--plum-ink);font-weight:700;background:var(--lav);border-radius:5px;padding:0 5px}
+.x{color:var(--red-ink);text-decoration:line-through;text-decoration-thickness:2px}
+.okt{color:var(--ok);font-weight:700}
+
+/* ===== formula chips ===== */
+.chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font:700 16.5px var(--mono)}
+.chips span{padding:3px 10px;border-radius:8px;white-space:nowrap}
+.chips .s{background:var(--paper2);color:var(--ink)}
+.chips .h{border:2px solid var(--red);color:var(--red-ink);padding:1px 9px}
+.chips .v{background:var(--vchip);color:#fff}
+.chips i{font-style:normal;color:var(--mute);font-weight:500}
+.fcard{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:6px 20px}
+.frow{display:grid;grid-template-columns:32px 1fr;gap:14px;padding:12px 0;border-top:1px dashed var(--line);align-items:start}
+.frow:first-child{border-top:0}
+.sgn{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font:700 17px var(--mono);background:var(--ink);color:var(--paper)}
+.exs{font-size:17px;margin-top:7px;line-height:1.45}
+.alt{display:flex;gap:12px;align-items:baseline;padding:11px 0 10px;border-top:2px solid var(--line);font-size:16.5px;line-height:1.5}
+.alt .tagp{flex:none;font:700 11.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;background:var(--paper2);border-radius:6px;padding:3px 8px;color:var(--mute)}
+.tgrid{display:grid;grid-template-columns:1.05fr 1fr;gap:22px;align-items:start}
+.rcol{display:flex;flex-direction:column;gap:10px}
+.uses{display:flex;flex-direction:column;gap:8px}
+.uses div{display:grid;grid-template-columns:150px 1fr;gap:12px;font-size:16.5px;line-height:1.45;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.uses div:last-child{border-bottom:0;padding-bottom:0}
+.uses b{font:700 11.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);padding-top:4px}
+.sigs{display:flex;flex-wrap:wrap;gap:7px;align-items:center}
+.sigs b{font:700 11.5px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-right:4px}
+.sigs span{font:600 14px var(--mono);border:1.5px solid var(--line);border-radius:999px;padding:3px 12px;background:var(--card)}
+.warn{display:flex;gap:14px;align-items:flex-start;background:var(--redsoft);border-radius:14px;padding:12px 18px;font-size:17px;line-height:1.45}
+.warn::before{content:"!";flex:none;width:26px;height:26px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font:700 15px var(--mono)}
+.warn b{color:var(--red-ink)}
+
+/* ===== timeline ===== */
+.tl-svg{width:100%;height:auto;display:block;overflow:visible}
+.t-axis{stroke:var(--ink);stroke-width:2.5}
+.t-now{fill:var(--ink)}
+.t-nowt{fill:var(--paper);font:700 12px var(--mono)}
+.t-lab{fill:var(--mute);font:700 13px var(--mono);letter-spacing:.1em}
+.t-sub{fill:var(--mute);font:500 14px var(--sans)}
+.t-red{fill:var(--red)}
+.t-redtxt{fill:var(--red-ink);font:700 15px var(--sans)}
+.t-plumtxt{fill:var(--plum-ink);font:700 15px var(--sans)}
+.t-oktxt{fill:var(--ok);font:700 15px var(--sans)}
+.t-plum{fill:var(--violet)}
+.t-bar{fill:var(--lav);stroke:var(--plum-ink);stroke-width:2}
+.t-curve{fill:none;stroke:var(--plum-ink);stroke-width:2.5}
+.t-dash{stroke:var(--red);stroke-width:2.5;stroke-dasharray:5 5}
+.t-flag{stroke:var(--red);stroke-width:2.5}
+.t-fill{fill:var(--ink)}.t-fillp{fill:var(--plum-ink)}
+.grow{transform-box:fill-box;transform-origin:left center;animation:grow .9s cubic-bezier(.2,.8,.2,1) both .15s}
+.pop{transform-box:fill-box;transform-origin:center;animation:pop .45s cubic-bezier(.3,1.6,.5,1) both}
+.draw{stroke-dasharray:400;stroke-dashoffset:400;animation:draw 1s ease-out forwards .35s}
+.fade{animation:fade .5s ease-out both .55s}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+
+/* ===== title ===== */
+.sl.title{background:radial-gradient(90% 120% at 100% 0%,rgba(179,18,46,.6),transparent 55%),linear-gradient(140deg,#25093A,#4A1A6B 60%,#3A1258);color:#fff;padding:60px 80px 56px 90px}
+.sl.title::before{background:var(--red)}.sl.title::after,.sl.div::after{display:none}
+.title .meta{font:700 13px var(--mono);letter-spacing:.18em;text-transform:uppercase;color:#E8D7FA}
+.title h1{font-weight:800;font-size:104px;line-height:.92;margin-top:28px}
+.title h1 em{color:#FFB3BD}
+.title .sub{font-size:22px;color:#E8D7FA;margin-top:24px;max-width:24ch;line-height:1.4}
+.ttiles{position:absolute;right:76px;top:96px;display:grid;grid-template-columns:repeat(3,152px);gap:10px}
+.ttiles .lab{font:700 11px var(--mono);letter-spacing:.18em;color:#E8D7FA;text-align:center;opacity:.8}
+.ttiles div.t{border:1.5px solid rgba(255,255,255,.22);border-radius:14px;padding:12px 12px 14px;font:700 12px var(--mono);color:#FFD4DA;background:rgba(255,255,255,.05);animation:fade .5s both}
+.ttiles div.t b{display:block;font:600 17px var(--serif);color:#fff;margin-bottom:6px;letter-spacing:-.01em}
+.title .foot{margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;font-size:16px;color:#E8D7FA;gap:30px}
+.title .foot strong{color:#fff;font-size:19px;white-space:nowrap}
+
+/* ===== divider ===== */
+.sl.div{background:#25093A;color:#fff;justify-content:center;padding-left:100px}
+.sl.div::before{background:var(--red)}
+.dpart{font:700 14px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:#FFB3BD}
+.sl.div h1{font-weight:800;font-size:88px;line-height:.95;margin-top:14px;max-width:12ch}
+.dtag{font-size:23px;color:#E8D7FA;margin-top:20px}
+.dtag b{font:700 19px var(--mono);background:var(--red);color:#fff;padding:3px 12px;border-radius:8px;margin-right:8px}
+.dnum{position:absolute;right:60px;bottom:-50px;font:800 420px/1 var(--serif);color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.15);pointer-events:none}
+.dgrid{display:grid;grid-template-columns:repeat(3,128px);gap:6px;margin-top:36px}
+.dgrid span{font:700 11px var(--mono);padding:9px 10px;border-radius:8px;border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.45)}
+.dgrid span.on{background:#fff;color:#25093A;border-color:#fff}
+
+/* ===== map ===== */
+.map{display:grid;grid-template-columns:160px repeat(3,1fr);gap:10px}
+.map .ch{font:700 12px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--mute);text-align:center;align-self:end}
+.map .rh{display:flex;flex-direction:column;justify-content:center;padding-left:14px;border-left:6px solid}
+.map .rh b{font:800 23px var(--serif)}
+.map .rh span{font-size:13.5px;color:var(--mute);line-height:1.3}
+.tile{text-align:left;background:var(--card);border:1.5px solid var(--line);border-left:6px solid;border-radius:14px;padding:11px 14px;display:flex;flex-direction:column;gap:6px;transition:transform .15s,box-shadow .15s}
+.tile:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(74,26,107,.15)}
+.tile b{font:800 19px var(--serif)}
+.tile .chips{font-size:13px}
+.tile small{font-size:13px;color:var(--mute)}
+.tile em{font:700 11px var(--mono);font-style:normal;color:var(--red-ink);letter-spacing:.06em}
+
+/* ===== practice ===== */
+.ugrid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+.ucol{display:flex;flex-direction:column;gap:10px}
+.slab{font:700 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mute);display:flex;gap:8px;align-items:center}
+.slab b{background:var(--red);color:#fff;border-radius:5px;padding:1px 7px;letter-spacing:0}
+.qc{cursor:pointer;background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:16px 20px;font-size:21px;line-height:1.6;transition:border-color .15s}
+.qc:hover{border-color:var(--plum-ink)}
+.no{font:700 13px var(--mono);color:#fff;background:var(--red);border-radius:6px;padding:2px 8px;margin-right:10px;vertical-align:2px}
+.gap{display:inline-block;border-bottom:2.5px solid var(--ink);margin:0 4px;font:700 19px var(--mono);text-align:center;line-height:1.2}
+.gap span{visibility:hidden}
+.qc.open .gap span{visibility:visible;color:var(--ok)}
+.qc.open .gap{border-color:var(--ok)}
+.hint{color:var(--plum-ink);font-style:italic;font-size:.9em}
+.why{display:none;font-size:16px;color:var(--mute);margin-top:6px;line-height:1.45}
+.qc.open .why{display:block}
+.tap{display:block;font:600 12px var(--mono);color:var(--mute);margin-top:4px;letter-spacing:.06em}
+.qc.open .tap{display:none}
+.errbox,.mc{background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:14px 18px}
+.esent{font-size:19px;line-height:2.1}
+.seg{display:inline-block;border:2px solid var(--line);border-radius:8px;padding:0 9px;margin:2px;cursor:pointer;background:var(--paper);line-height:1.6}
+.seg small{font:700 12px var(--mono);color:var(--red-ink);margin-right:6px}
+.seg:hover{border-color:var(--plum-ink)}
+.seg.ok{border-color:var(--ok);background:var(--oksoft)}.seg.no{border-color:var(--red);background:var(--redsoft)}
+.efb,.mfb{font-size:16px;line-height:1.45;min-height:22px;margin-top:4px}
+.mcq{font-size:20px;line-height:1.5}
+.mcq .gap{min-width:7ch}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.opts button{text-align:left;background:var(--paper);border:1.5px solid var(--line);border-radius:10px;padding:8px 12px;font-size:17px;font-weight:600}
+.opts button b{font-family:var(--mono);color:var(--mute);margin-right:8px}
+.opts button:hover:not(:disabled){border-color:var(--plum-ink)}
+.opts button.ok{border-color:var(--ok);background:var(--oksoft);color:var(--ok)}
+.opts button.no{border-color:var(--red);background:var(--redsoft);color:var(--red-ink)}
+.rst{align-self:flex-start;border:1px solid var(--line);background:none;color:var(--mute);border-radius:999px;padding:4px 12px;font:700 12px var(--mono)}
+.rst:hover{border-color:var(--plum-ink);color:var(--plum-ink)}
+
+/* ===== tables ===== */
+.tbl{width:100%;border-collapse:separate;border-spacing:0;font-size:17px;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.tbl th{font:700 11.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mute);text-align:left;padding:10px 14px;background:var(--paper2)}
+.tbl td{padding:8px 14px;border-top:1px solid var(--line);vertical-align:top;line-height:1.4}
+.auxt td{text-align:center;padding:5px 12px}
+.auxt td:first-child{text-align:left;font-weight:700}
+.auxt tbody tr{cursor:pointer}
+.auxt td.h span{visibility:hidden}
+.auxt td.h{background:var(--paper2)}
+.auxt tbody tr:hover td:first-child{color:var(--red-ink)}
+.irr{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.irr td{padding:4px 14px;font-size:16.5px}
+.irr td.v3{color:var(--red-ink);font-weight:700}
+.hide-v3 .irr td.v3 span,.hide-v2 .irr td.v2 span{visibility:hidden}
+.hide-v3 .irr td.v3,.hide-v2 .irr td.v2{background:var(--paper2);cursor:pointer}
+.irr td.shown span{visibility:visible!important}
+.sp{display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-top:1px solid var(--line);font-size:16px}
+.sp:first-of-type{border-top:0}
+.sp b{font-family:var(--mono);font-size:15px;color:var(--plum-ink);white-space:nowrap}
+.vform .chips{font-size:22px}
+.vform p{font-size:16.5px;line-height:1.55;margin:8px 0 0}
+
+/* ===== buttons ===== */
+.btn{border:1.5px solid var(--plum-ink);background:var(--card);color:var(--plum-ink);border-radius:10px;padding:8px 16px;font-weight:700;font-size:15px}
+.btn.primary{background:var(--plum);border-color:var(--plum);color:#fff}
+.btn.red{background:var(--red);border-color:var(--red);color:#fff}
+.btn:hover{filter:brightness(1.08)}
+.ctrls{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+
+/* ===== dialogues / quiz / boxes ===== */
+.dlg .card{padding:14px 18px}
+.dl{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;padding:9px 0;border-top:1px solid var(--line);cursor:pointer;font-size:17px;line-height:1.4}
+.dl:first-of-type{border-top:0}
+.dl u{text-decoration-color:var(--red);text-decoration-thickness:2px;text-underline-offset:3px}
+.dl .dans{grid-column:2;font:700 16px var(--mono);color:var(--ok);visibility:hidden}
+.dl.open .dans{visibility:visible}
+.dl .dans::before{content:"→ "}
+.rq{background:var(--card);border:1.5px solid var(--line);border-radius:20px;padding:24px 30px;display:flex;flex-direction:column;gap:16px;max-width:980px;width:100%;margin:auto}
+.rqm{display:flex;justify-content:space-between;align-items:center;font:700 13px var(--mono);letter-spacing:.1em;color:var(--mute);text-transform:uppercase}
+.rtag{background:var(--plum);color:#fff;border-radius:6px;padding:3px 10px;visibility:hidden}
+.rtag.show{visibility:visible}
+.rqq{font:600 34px/1.35 var(--serif);min-height:96px}
+.rqq .gap{font-size:28px}
+.rqa{font-size:18px;min-height:52px;color:var(--mute);line-height:1.45}
+.box{background:var(--card);border-radius:14px;padding:16px 20px;border:1px solid var(--line);border-top:6px solid var(--plum)}
+.box.r{border-top-color:var(--red)}
+.box h4{margin:0 0 6px;font:700 12px var(--mono);letter-spacing:.14em;color:var(--mute)}
+.box .t{font:800 23px var(--serif);margin-bottom:8px}
+.box p{font-size:17px;line-height:1.6;margin:0}
+.box p b{color:var(--red-ink)}
+
+/* ===== bar ===== */
+#bar{position:fixed;left:0;right:0;bottom:0;height:56px;background:#0E0716;color:#fff;border-top:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:6px;padding:0 12px calc(env(safe-area-inset-bottom,0px));z-index:20}
+#bar button{background:transparent;border:none;color:#fff;width:40px;height:40px;border-radius:10px;display:grid;place-items:center}
+#bar button:hover,#bar button[aria-pressed="true"]{background:rgba(255,255,255,.12)}
+#bar svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+#cnt{font:700 13px var(--mono);min-width:64px;text-align:center}
+#prog{flex:1;display:flex;gap:3px;align-items:center;padding:0 8px}
+#prog i{flex:1;height:6px;border-radius:3px;background:rgba(255,255,255,.14);cursor:pointer}
+#prog i.gapl{margin-left:9px}
+#prog i.done{background:rgba(201,166,242,.55)}#prog i.now{background:#E23B4F}
+#prog i:hover{background:rgba(255,255,255,.45)}
+#notesPanel{visibility:hidden;position:fixed;right:0;top:0;bottom:56px;width:min(400px,92vw);background:var(--paper);color:var(--ink);z-index:30;transform:translateX(105%);transition:transform .3s,visibility .3s;padding:24px 26px;box-shadow:-20px 0 60px rgba(0,0,0,.35);overflow:auto;border-left:6px solid var(--red)}
+#notesPanel.open{transform:none;visibility:visible}
+#notesPanel h3{font:800 22px var(--serif);margin:0}
+#notesPanel .nt{font:700 12px var(--mono);color:var(--mute);margin-top:6px;letter-spacing:.06em}
+#notesText{font-size:17px;line-height:1.6;margin-top:14px;white-space:pre-line}
+#notesPanel .x{position:absolute;right:14px;top:14px;border:none;background:var(--paper2);width:34px;height:34px;border-radius:50%;font-size:20px}
+#notesPanel .keys{margin-top:24px;font-size:13.5px;color:var(--mute);line-height:1.9;border-top:1px solid var(--line);padding-top:12px}
+kbd{font-family:var(--mono);background:var(--paper2);border-radius:5px;padding:1px 6px;font-size:12px;color:var(--ink)}
+#overview{position:fixed;inset:0 0 56px 0;background:rgba(14,7,22,.95);z-index:40;display:none;overflow:auto;padding:30px}
+#overview.open{display:block}
+#overview h3{color:#fff;font:800 26px var(--serif);margin:0 auto 18px;max-width:1200px}
+#ovGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;max-width:1200px;margin:0 auto}
+#ovGrid button{text-align:left;background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.12);border-left:5px solid var(--c,#7B3FB5);border-radius:10px;padding:10px 12px;min-height:70px;display:flex;flex-direction:column;gap:4px}
+#ovGrid button b{font:700 12px var(--mono);color:#FFB3BD}
+#ovGrid button span{font-size:14.5px;line-height:1.3}
+#ovGrid button.cur{outline:2px solid #fff}
+#timer{position:fixed;right:14px;top:14px;z-index:25;background:#25093A;color:#fff;border-radius:14px;padding:8px 10px 8px 16px;display:none;align-items:center;gap:8px;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+#timer.on{display:flex}
+#timer .tt{font:700 28px var(--mono);min-width:96px}
+#timer button{border:none;background:rgba(255,255,255,.12);color:#fff;border-radius:8px;height:32px;padding:0 10px;font-size:13px;font-weight:700}
+#timer.done{background:var(--red);animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{filter:brightness(1.3)}}
+
+/* ===== phone portrait ===== */
+body.fluid{overflow:auto}
+body.fluid #vp{position:static;display:block;padding:10px 10px 80px}
+body.fluid #frame{width:auto;height:auto}
+body.fluid #stage{position:relative;width:100%;height:auto;transform:none}
+body.fluid .sl{position:relative;padding:22px 16px 56px 26px;min-height:70vh}
+body.fluid .sl::before{width:8px}
+body.fluid .body{overflow:visible}
+body.fluid .ft{left:26px;right:16px;bottom:16px}
+body.fluid h2{font-size:30px}
+body.fluid .title h1,body.fluid .sl.div h1{font-size:52px}
+body.fluid .ttiles,body.fluid .dnum,body.fluid #prog{display:none}
+body.fluid .g2,body.fluid .g3,body.fluid .g4,body.fluid .tgrid,body.fluid .ugrid,body.fluid .irr,body.fluid .map,body.fluid .opts{grid-template-columns:1fr!important}
+body.fluid .map .ch{display:none}
+body.fluid .uses div{grid-template-columns:1fr}
+body.fluid .rqq{font-size:24px}
+body.fluid .tbl{font-size:14px}
+body.fluid .sx{overflow-x:auto}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.draw{stroke-dashoffset:0}}
+</style>
+</head>
+<body>
+<div id="vp"><div id="frame"><main id="stage"></main></div></div>
+
+<nav id="bar" aria-label="Kontrol presentasi">
+  <button id="bPrev" title="Sebelumnya (←)" aria-label="Sebelumnya"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+  <span id="cnt"></span>
+  <button id="bNext" title="Berikutnya (→)" aria-label="Berikutnya"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+  <div id="prog"></div>
+  <button id="bMap" title="Peta tenses (M)" aria-label="Peta tenses"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="5" height="5" rx="1"/><rect x="10" y="3" width="5" height="5" rx="1"/><rect x="17" y="3" width="4" height="5" rx="1"/><rect x="3" y="10" width="5" height="5" rx="1"/><rect x="10" y="10" width="5" height="5" rx="1"/><rect x="17" y="10" width="4" height="5" rx="1"/><rect x="3" y="17" width="5" height="4" rx="1"/><rect x="10" y="17" width="5" height="4" rx="1"/><rect x="17" y="17" width="4" height="4" rx="1"/></svg></button>
+  <button id="bGrid" title="Semua slide (G)" aria-label="Semua slide"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg></button>
+  <button id="bNotes" title="Catatan guru (N)" aria-label="Catatan guru" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H8l-4 4z"/><path d="M8 9h8M8 12h5"/></svg></button>
+  <button id="bTimer" title="Timer (T)" aria-label="Timer"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/></svg></button>
+  <button id="bTheme" title="Terang / gelap (L)" aria-label="Ganti tema"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/></svg></button>
+  <button id="bFull" title="Layar penuh (F)" aria-label="Layar penuh"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+</nav>
+
+<aside id="notesPanel" aria-label="Catatan guru">
+  <button class="x" id="nClose" aria-label="Tutup">×</button>
+  <h3>Catatan guru</h3><div class="nt" id="notesTitle"></div><div id="notesText"></div>
+  <div class="keys"><kbd>←</kbd> <kbd>→</kbd> pindah slide · <kbd>M</kbd> peta · <kbd>G</kbd> semua slide<br><kbd>N</kbd> catatan · <kbd>T</kbd> timer · <kbd>L</kbd> tema · <kbd>F</kbd> layar penuh</div>
+</aside>
+<div id="overview" role="dialog" aria-label="Semua slide"><h3>Semua slide</h3><div id="ovGrid"></div></div>
+<div id="timer" aria-live="polite"><span class="tt" id="tTime">05:00</span><button id="tPause">Jeda</button><button id="tReset">Ulang</button><button id="tClose" aria-label="Tutup timer">×</button></div>
+
+<script>
+(function(){
+"use strict";
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const pad=n=>String(n).padStart(2,"0");
+
+/* =====================================================================
+   DATA: the nine tenses + Latihan UAS (Practice Set A) items
+   ===================================================================== */
+const FAM=["Simple","Continuous","Perfect"], TIME=["Past","Present","Future"];
+const BAND=["var(--f0)","var(--f1)","var(--f2)"];
+const T=[
+{id:"spres",fam:0,time:1,n:"Simple Present",title:"Simple <em>Present</em>",idea:"Facts, habits and routines: things that are generally true.",
+ f:[["+","S + V1 / V1-s","She [works] in a factory."],["−","S + do / does not + V1","She {doesn't} [work] on Sundays."],["?","Do / Does + S + V1 ?","{Does} she [work] here?"]],
+ alt:["to be","I {am} a student. · He {isn't} late. · {Are} they ready?"],
+ uses:[["Facts","Water [boils] at 100°C."],["Habits","We [go] to school by bus every day."],["Timetables","The museum [closes] at 3 on weekdays."]],
+ sig:["always","usually","often","never","every day","every Monday","on weekdays"],
+ warn:"<b>he / she / it</b> → V1-s and <b>does</b>. After does, the verb goes back to V1: Does she <b>work</b>? Not “Does she works?”",
+ uas:{a:[[1,"My brother ____ (not / eat) meat.","does not eat","A fact about him → does not + V1 (he / she / it)."],[36,"That museum ____ (always / close) at 3 on weekdays.","always closes","always + on weekdays = a routine → closes."]],
+  b:[21,"[My father work] [at the factory] [near the station] [with my uncle] every day.","A","My father works"],
+  t:{q:"Bu Maria ____ English to class X every Monday.",p:["teach","teaches","is teaching","taught"],a:1,w:"every Monday = routine; Bu Maria = she → teaches."}},
+ notes:"Ask three students about their routines: 'What do you usually do on Saturdays?' Then ask about a friend to force the -s. Item #21 in Set A is exactly this error."},
+{id:"spast",fam:0,time:0,n:"Simple Past",title:"Simple <em>Past</em>",idea:"An action that started and finished at a definite time in the past.",
+ f:[["+","S + V2","Last Saturday we [rode] our bikes."],["−","S + did not + V1","She {didn't} [go] to work."],["?","Did + S + V1 ?","{Did} she [go] home?"]],
+ alt:["to be","I {was} sick yesterday. · They {weren't} at home. · {Were} you tired?"],
+ uses:[["Finished time","We [visited] our grandmother last night."],["Clock time, story over","Yes, he [finished] it at 11."],["Series of actions","He [opened] the door and [sat] down."]],
+ sig:["yesterday","last night","last Saturday","two days ago","in 2024","at 11 (finished)"],
+ warn:"<b>did</b> already shows the past → did / didn't + <b>V1</b>. A finished time (last night, at 11) → <b>V2</b>, never have + V3.",
+ uas:{a:[[10,"Last Saturday we ____ (ride) our bikes to Tawangmangu.","rode","last Saturday → V2: ride – rode – ridden."],[33,"Yes, he ____ (finish) it at 11, but Pak Budi asked him to clean the lathe.","finished","“at 11” = a finished clock time → V2, not has finished."]],
+  b:[22,"[We] [have visited] [our grandmother] [in Klaten] last night.","B","visited"],
+  t:{q:"Three days ago the manager ____ us a new schedule.",p:["gives","has given","gave","had given"],a:2,w:"three days ago = finished → gave. No have, no had."}},
+ notes:"The two big Simple Past errors in Set A: 'have visited … last night' (#22) and forgetting V2 of irregular verbs (#10 rode). Drill: ride–rode–ridden, go–went–gone."},
+{id:"sfut",fam:0,time:2,n:"Simple Future",title:"Simple <em>Future</em>",idea:"Things that have not happened yet: offers, promises, opinions, plans.",
+ f:[["+","S + will + V1","Don't worry, I {will} [carry] those tools."],["−","S + will not + V1","They {won't} [finish] it today."],["?","Will + S + V1 ?","{Will} you [help] me?"]],
+ alt:["going to","Plan or evidence now: It's making a noise. It {is going to} [break] down."],
+ uses:[["Offer / promise","I promise I {will} [check] it again."],["Opinion","I'm sure the team {will} [win] the match."],["Evidence now","Look at the sky. It {is going to} [rain]."]],
+ sig:["tomorrow","next week","soon","I promise","I'm sure","Don't worry","Look at …"],
+ warn:"After <b>will</b> → V1: not “will goes”, not “will to help”. And don't drop will: I'm sure the team <b>will win</b>.",
+ uas:{a:[[11,"Don't worry, I ____ (carry) those tools for you.","will carry","An offer decided now → will. (going to also accepted)"],[18,"The engine is making a strange noise. It ____ (break) down soon.","is going to break","Evidence now → going to. (will accepted)"]],
+  b:[23,"[I'm sure] [the team] [win] [the match] next week.","C","will win"],
+  t:{q:"“The phone is ringing.” “I ____ it.”",p:["answer","am answering","will answer","answered"],a:2,w:"A decision made at this moment → will + V1."}},
+ notes:"For Set A, will and going to are both accepted for #11 and #18. For #37 in the dialogue ('I promise'), will is the clear answer."},
+{id:"pc",fam:1,time:1,n:"Present Continuous",title:"Present <em>Continuous</em>",idea:"Happening right now, at the moment of speaking.",
+ f:[["+","S + am / is / are + V-ing","The students {are} [running] to the canteen."],["−","S + am / is / are not + V-ing","He {isn't} [working] today."],["?","Am / Is / Are + S + V-ing ?","{Are} you [listening]?"]],
+ alt:null,
+ uses:[["Right now","Look! The baby {is} [crying]."],["Still happening","I {am} [waiting] for Andi. He is still in the lab."],["Arranged plan","We {are} [meeting] the instructor tomorrow."]],
+ sig:["now","right now","at the moment","Look!","Listen!","Be quiet!","still here"],
+ warn:"<b>Look! / Listen! / Be quiet!</b> = NOW → am / is / are + V-ing. Not “Look! The baby cries.”",
+ uas:{a:[[3,"Look! The students ____ (run) to the canteen.","are running","Look! = now → are + V-ing (run → running)."],[31,"Sorry, Bu. I ____ (wait) for Andi. He is still in the lab.","am waiting","“still in the lab” tells you it is happening now."]],
+  b:[24,"[Look!] [The baby] [in the pram] [cries].","D","is crying"],
+  t:{q:"Be quiet! The operator ____ the new machine.",p:["tests","is testing","was testing","tested"],a:1,w:"Be quiet! = right now → is + V-ing."}},
+ notes:"In #31 the clue is in the OTHER speaker's sentence ('He is still in the lab'). Train students to read the whole dialogue first."},
+{id:"pastc",fam:1,time:0,n:"Past Continuous",title:"Past <em>Continuous</em>",idea:"In progress at a moment in the past, often interrupted by a short action.",
+ f:[["+","S + was / were + V-ing","At 9 last night, we {were} [working]."],["−","S + was / were not + V-ing","She {wasn't} [listening]."],["?","Was / Were + S + V-ing ?","{Were} you still [sleeping] at 7?"]],
+ alt:null,
+ uses:[["Interrupted","When the power failed, they {were} still [calibrating] the gauges."],["Past clock time","At 8 p.m. we {were} still [working] in the workshop."],["while","While she {was} [measuring], the alarm [rang]."]],
+ sig:["when + V2","while","at 9 last night","at 7 this morning","still + past time"],
+ warn:"<b>still</b> + a past moment → was / were + still + V-ing. Not “Andi and Budi still eat their snacks.”",
+ uas:{a:[[4,"When the power failed, the operators ____ (still / calibrate) the gauges.","were still calibrating","“still” = the action was in progress at that moment."],[38,"I knocked at 7 this morning but nobody opened. ____ (you / still / sleep)?","Were you still sleeping","Question: were + you + still + V-ing."]],
+  b:[25,"When the teacher came in, [Andi] [and Budi] [still eat] [their snacks].","C","were still eating"],
+  t:{q:"At this time yesterday, I ____ still ____ in the lab.",p:["am – working","was – working","had – worked","will – work"],a:1,w:"a past clock time + still → was still working."}},
+ notes:"Draw the bar (long action) and the dot (short action) on the board. Position of still: was / were + still + V-ing."},
+{id:"fc",fam:1,time:2,n:"Future Continuous",title:"Future <em>Continuous</em>",idea:"In progress at a moment in the future. Started, not finished yet.",
+ f:[["+","S + will be + V-ing","At 4, I {will} still {be} [washing] my motorcycle."],["−","S + won't be + V-ing","I {won't be} [working] tomorrow."],["?","Will + S + be + V-ing ?","{Will} you {be} [using] the lab?"]],
+ alt:null,
+ uses:[["AT a future time","At 10 a.m. tomorrow, the welders {will} still {be} [repairing] the gate."],["… then","Don't come at 2. I {will} still {be} [taking] a nap then."],["Polite question","{Will} you {be} [using] the printer this afternoon?"]],
+ sig:["at 10 a.m. tomorrow","at 4","this time tomorrow","still + future time","then"],
+ warn:"<b>AT</b> a time = in progress → will be + V-ing. Never with <b>by</b>. After be → V-ing: not “will still be take”.",
+ uas:{a:[[7,"At 10 a.m. tomorrow, the welders ____ (still / repair) the gate.","will still be repairing","AT a time = in the middle of the action → will be + V-ing."],[40,"Yes, but I ____ (still / wash) my motorcycle at 4.","will still be washing","“at 4” + still → in progress then."]],
+  b:[26,"Don't come at 2 p.m. [I] [will still be take] [a nap] [in my room] then.","B","will still be taking"],
+  t:{q:"Don't call at 8 tonight. We ____ still ____ dinner.",p:["will – have","will – be having","will have – had","are – having"],a:1,w:"AT 8 + still → will still be having."}},
+ notes:"Position of still: will + still + be + V-ing. Contrast now with Future Perfect: AT 4 vs BY 4."},
+{id:"pp",fam:2,time:1,n:"Present Perfect",title:"Present <em>Perfect</em>",idea:"A past action whose result still matters now. No exact time.",
+ f:[["+","S + have / has + V3","She {has} just [left] the office."],["−","S + have / has not + V3","I {haven't} [finished] yet."],["?","Have / Has + S + V3 ?","{Has} he [finished] it yet?"]],
+ alt:null,
+ uses:[["just / yet","She {has} just [left]. · {Has} he [finished] yet?"],["since / for","We {have} [been] friends since primary school."],["ever / never","Rudi {has} never [ridden] a motorcycle."]],
+ sig:["just","already","yet","ever","never","since","for"],
+ warn:"After have / has → <b>V3</b>: has never <b>ridden</b>, not “has never rode”. With yesterday / last / ago → Simple Past.",
+ uas:{a:[[6,"She ____ (just / leave) the office.","has just left","just = a moment ago, result now → has + V3."],[14,"We ____ (be) friends since primary school.","have been","since + still true now → have + V3 (been)."]],
+  b:[27,"[Rudi] [has] [never] [rode a motorcycle].","D","ridden a motorcycle"],
+  t:{q:"____ you ever ____ a car?",p:["Did – drove","Have – driven","Had – driven","Have – drove"],a:1,w:"ever = experience up to now → Have + V3 (driven)."}},
+ notes:"Bridge for Indonesian speakers: 'sudah' and 'pernah' often point to the Present Perfect. #27 is a V3 error, so revisit the irregular verbs slide if needed."},
+{id:"pastp",fam:2,time:0,n:"Past Perfect",title:"Past <em>Perfect</em>",idea:"The earlier of two past events. The past before the past.",
+ f:[["+","S + had + V3","We {had} already [cleaned] the machines."],["−","S + had not + V3","I {hadn't} [met] him before."],["?","Had + S + V3 ?","{Had} you [finished] the test?"]],
+ alt:null,
+ uses:[["by the time + past","By the time the inspector arrived, we {had} already [cleaned] the machines."],["when … already","When we got to the museum, it {had} already [closed]."],["before + past","Before the bell rang, the students {had} [finished] the test."]],
+ sig:["by the time + V2","before + V2","when + V2 … already","already"],
+ warn:"Two past events: earlier = <b>had + V3</b>, later = V2. Not “had already go” → had already <b>gone</b>.",
+ uas:{a:[[5,"By the time the inspector arrived, we ____ (already / clean) the machines.","had already cleaned","The cleaning finished first, the inspector came second → had + V3."],[35,"When we got to the museum at 4, it ____ (already / close).","had already closed","It closed before we got there → had already + V3."]],
+  b:[29,"By the time I woke up, [my mother] [had] [already] [go to the market].","D","gone to the market"],
+  t:{q:"Before the bell rang, the students ____ already ____ the test.",p:["have – finished","had – finished","were – finishing","did – finish"],a:1,w:"before + a past event + already → had finished."}},
+ notes:"Think of a film flashback: the older event gets had + V3. #39 in Dialogue 3 uses the same pattern (by the time you came … had already switched)."},
+{id:"fp",fam:2,time:2,n:"Future Perfect",title:"Future <em>Perfect</em>",idea:"Already finished before a deadline in the future.",
+ f:[["+","S + will have + V3","By 1 o'clock he {will have} [cleaned] it."],["−","S + won't have + V3","We {won't have} [finished] by then."],["?","Will + S + have + V3 ?","{Will} the mechanic {have} [fixed] it?"]],
+ alt:null,
+ uses:[["by + future time","By the end of this year, the factory {will have} [produced] one million parts."],["by + clock time","By 1 o'clock he {will have} [cleaned] it."],["by the time + present","By the time you [arrive], we {will have} [eaten]."]],
+ sig:["by 1 o'clock","by next June","by tomorrow morning","by the end of this year"],
+ warn:"<b>BY</b> a time = already finished → will have + V3. Always <b>will have</b>, never “will has”.",
+ uas:{a:[[8,"By the end of this year, this factory ____ (produce) one million parts.","will have produced","BY a time = finished before it → will have + V3."],[34,"By 1 o'clock he ____ (clean) it, I'm sure.","will have cleaned","by 1 o'clock → will have cleaned."]],
+  b:[30,"[By next June,] [my sister] [will has finished] [her training].","C","will have finished"],
+  t:{q:"____ the mechanic ____ the truck by tomorrow morning?",p:["Has – fixed","Will – fix","Will – have fixed","Had – fixed"],a:2,w:"by tomorrow morning → Will + subject + have + V3."}},
+ notes:"Personal example: 'By the time you graduate, you will have completed your industrial placement.' Then go straight to the AT vs BY slide."}
+];
+const DLG=[
+ ["Dialogue 1",[[31,"“He is <u>still</u> in the lab”","am waiting"],[32,"“… <u>yet</u>?”","has he finished"],[33,"“<u>at 11</u>”","finished"],[34,"“<u>By</u> 1 o'clock”","will have cleaned"]]],
+ ["Dialogue 2 · After the trip",[[35,"“When we got there … <u>already</u>”","had already closed"],[36,"“<u>always</u> … on weekdays”","always closes"],[37,"“I <u>promise</u>”","will check"]]],
+ ["Dialogue 3 · A phone call",[[38,"“at 7 … <u>still</u>”","were you still sleeping"],[39,"“<u>By the time</u> you came … <u>already</u>”","had already switched"],[40,"“<u>at 4</u> … <u>still</u>”","will still be washing"]]]
+];
+const PARTS=["Start","Foundations","Simple tenses","Continuous tenses","Perfect tenses","Exam strategy"];
+
+/* =====================================================================
+   HELPERS
+   ===================================================================== */
+const ex=s=>esc(s).replace(/\{([^}]+)\}/g,'<span class="a">$1</span>').replace(/\[([^\]]+)\]/g,'<span class="b">$1</span>');
+function chips(f){
+  f=f.trim(); let q=false; if(f.endsWith("?")){ q=true; f=f.slice(0,-1).trim(); }
+  return `<div class="chips">${f.split(" + ").map(t=>{ t=t.trim(); const c=t==="S"?"s":/^V/.test(t)?"v":"h"; return `<span class="${c}">${esc(t)}</span>`; }).join("<i>+</i>")}${q?"<i>?</i>":""}</div>`;
+}
+const segs=s=>{ let k=0; return esc(s).replace(/\[([^\]]+)\]/g,(m,g)=>{ const L="ABCD"[k++]; return `<span class="seg" data-l="${L}"><small>${L}</small>${g}</span>`; }); };
+function gapq(q,ans){
+  const g=ans?`<span class="gap" style="min-width:${ans.length+2}ch"><span>${esc(ans)}</span></span>`:`<span class="gap" style="min-width:8ch"><span>&nbsp;</span></span>`;
+  return esc(q).replace(/\(([^)]+)\)/g,'<span class="hint">($1)</span>').replace("____",g).replace(/____/g,`<span class="gap" style="min-width:6ch"><span>&nbsp;</span></span>`);
+}
+function locator(ti,row){
+  let h='<div class="loc" title="Peta tenses">';
+  for(let r=0;r<3;r++)for(let c=0;c<3;c++){ const t=T.find(x=>x.fam===r&&x.time===c); const on=(ti!=null&&T[ti]===t)||(row!=null&&row===r); h+=`<span class="${on?"on":""}" data-go="s-${t.id}" title="${t.n}"></span>`; }
+  return h+"</div>";
+}
+const head=(kick,title,lede,loc)=>`<div class="hd"><div class="kk"><i></i>${kick}</div>${loc||""}</div><h2>${title}</h2>${lede?`<p class="lede">${lede}</p>`:""}`;
+const setA=t=>[...t.uas.a.map(a=>a[0]),t.uas.b[0]].sort((x,y)=>x-y).map(n=>"#"+n).join(" ");
+
+/* =====================================================================
+   TIMELINES
+   ===================================================================== */
+let tlc=0;
+function tl(k){
+  const id="m"+(tlc++), y=88;
+  let s=`<svg viewBox="0 0 900 160" class="tl-svg" role="img" aria-label="Timeline"><defs>
+  <marker id="${id}" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="t-fill"/></marker>
+  <marker id="${id}p" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="t-fillp"/></marker></defs>
+  <line x1="20" y1="${y}" x2="884" y2="${y}" class="t-axis" marker-end="url(#${id})"/>
+  <text x="22" y="${y+62}" class="t-lab">PAST</text><text x="880" y="${y+62}" class="t-lab" text-anchor="end">FUTURE</text>
+  <rect x="424" y="${y+44}" width="52" height="24" rx="12" class="t-now"/><text x="450" y="${y+61}" class="t-nowt" text-anchor="middle">NOW</text>
+  <line x1="450" y1="${y-14}" x2="450" y2="${y+14}" stroke="currentColor" class="t-axis"/>`;
+  const T2={
+   spres:()=>[120,230,340,450,560,670,780].map((x,i)=>`<circle cx="${x}" cy="${y}" r="9" class="t-red pop" style="animation-delay:${.1+i*.08}s"/>`).join("")+`<text x="450" y="${y-28}" class="t-redtxt fade" text-anchor="middle">every day · always · on weekdays</text><text x="450" y="${y+32}" class="t-sub fade" text-anchor="middle">true before, now and after</text>`,
+   spast:()=>`<circle cx="240" cy="${y}" r="11" class="t-red pop"/><text x="240" y="${y-26}" class="t-redtxt fade" text-anchor="middle">last Saturday · at 11 · ago</text><text x="240" y="${y+32}" class="t-sub fade" text-anchor="middle">started and finished</text>`,
+   sfut:()=>`<circle cx="680" cy="${y}" r="11" class="t-red pop"/><text x="680" y="${y-26}" class="t-redtxt fade" text-anchor="middle">tomorrow · next week · soon</text><text x="680" y="${y+32}" class="t-sub fade" text-anchor="middle">not happened yet</text>`,
+   pc:()=>`<rect x="360" y="${y-11}" width="180" height="22" rx="11" class="t-bar grow"/><text x="450" y="${y-26}" class="t-redtxt fade" text-anchor="middle">Look! · right now · still here</text><text x="450" y="${y+32}" class="t-sub fade" text-anchor="middle">in progress, not finished</text>`,
+   pastc:()=>`<rect x="100" y="${y-11}" width="270" height="22" rx="11" class="t-bar grow"/><text x="180" y="${y-22}" class="t-plumtxt fade" text-anchor="middle">were still calibrating</text><line x1="310" y1="${y-48}" x2="310" y2="${y+14}" class="t-dash fade"/><circle cx="310" cy="${y}" r="9" class="t-red pop" style="animation-delay:.8s"/><text x="310" y="${y-56}" class="t-redtxt fade" text-anchor="middle">the power failed</text><text x="235" y="${y+32}" class="t-sub fade" text-anchor="middle">long action, short interruption</text>`,
+   fc:()=>`<rect x="580" y="${y-11}" width="240" height="22" rx="11" class="t-bar grow"/><line x1="700" y1="${y-42}" x2="700" y2="${y+16}" class="t-dash fade"/><text x="700" y="${y-50}" class="t-redtxt fade" text-anchor="middle">AT 10 a.m. tomorrow</text><text x="700" y="${y+32}" class="t-sub fade" text-anchor="middle">still repairing, not finished</text>`,
+   pp:()=>`<circle cx="230" cy="${y}" r="10" class="t-red pop"/><text x="230" y="${y+32}" class="t-redtxt fade" text-anchor="middle">has just left</text><path d="M232 ${y-16} Q340 ${y-108} 444 ${y-20}" class="t-curve draw" marker-end="url(#${id}p)"/><text x="340" y="${y-70}" class="t-plumtxt fade" text-anchor="middle">result still true now</text>`,
+   pastp:()=>`<circle cx="170" cy="${y}" r="11" class="t-red pop"/><circle cx="330" cy="${y}" r="11" class="t-plum pop" style="animation-delay:.35s"/><text x="170" y="${y-24}" class="t-redtxt fade" text-anchor="middle">had cleaned</text><text x="330" y="${y-24}" class="t-plumtxt fade" text-anchor="middle">arrived</text><text x="170" y="${y+32}" class="t-sub fade" text-anchor="middle">1st</text><text x="330" y="${y+32}" class="t-sub fade" text-anchor="middle">2nd</text><path d="M186 ${y-46} Q250 ${y-78} 314 ${y-46}" class="t-curve draw" marker-end="url(#${id}p)"/>`,
+   fp:()=>`<rect x="452" y="${y-11}" width="240" height="22" rx="11" class="t-bar grow"/><text x="572" y="${y-22}" class="t-sub fade" text-anchor="middle">work happens here</text><line x1="720" y1="${y-54}" x2="720" y2="${y}" class="t-flag fade"/><circle cx="720" cy="${y}" r="13" class="t-red pop" style="animation-delay:.9s"/><path d="M713 ${y} l5 5 l9 -10" stroke="#fff" stroke-width="3" fill="none" class="fade"/><text x="720" y="${y-62}" class="t-redtxt fade" text-anchor="middle">BY 1 o'clock</text><text x="720" y="${y+34}" class="t-oktxt fade" text-anchor="middle">finished</text>`
+  };
+  return s+(T2[k]?T2[k]():"")+"</svg>";
+}
+const renderTL=root=>$$("[data-tl]",root).forEach(el=>el.innerHTML=tl(el.dataset.tl));
+
+/* =====================================================================
+   SLIDES
+   ===================================================================== */
+const S=[]; const add=o=>S.push(o);
+
+/* ---- title ---- */
+add({id:"s-title",cls:"title",part:0,title:"Title",html:`
+ <div class="meta">English · Kelas X · Semester Gasal 2026/2027</div>
+ <h1>Semester 1<br><em>Review</em></h1>
+ <p class="sub">Nine tenses on one timeline, practised with the questions from Latihan UAS Set A.</p>
+ <div class="ttiles"><div class="lab">PAST</div><div class="lab">PRESENT</div><div class="lab">FUTURE</div>
+ ${[0,1,2].map(r=>[0,1,2].map(c=>{ const t=T.find(x=>x.fam===r&&x.time===c); return `<div class="t" style="animation-delay:${.2+(r*3+c)*.07}s"><b>${t.n}</b>${esc(t.f[0][1].replace("S + ",""))}</div>`; }).join("")).join("")}</div>
+ <div class="foot"><div>Asesmen Sumatif Akhir Semester</div><strong>SMK Katolik St. Mikael Surakarta</strong></div>`,
+ notes:"Open with: 'How many tenses did we study this semester?' Answer: nine. Every practice slide in this deck uses the actual items from Latihan UAS Set A, with the item number shown."});
+
+/* ---- map ---- */
+add({id:"s-map",part:0,band:"var(--plum)",title:"The map",html:head("The big picture","Nine tenses, <em>one map</em>","The column is WHEN. The row is WHAT KIND of action. Red numbers = the Set A items for that tense. Tap a tile to jump.")+
+ `<div class="body"><div class="map"><div></div><div class="ch">Past</div><div class="ch">Present</div><div class="ch">Future</div>${
+  [0,1,2].map(r=>`<div class="rh" style="border-color:${BAND[r]}"><b>${FAM[r]}</b><span>${["a fact, a whole action","in progress at a moment","finished before a moment"][r]}</span></div>`+
+  [0,1,2].map(c=>{ const t=T.find(x=>x.fam===r&&x.time===c); return `<button class="tile" style="border-left-color:${BAND[r]}" data-go="s-${t.id}"><b>${t.n}</b>${chips(t.f[0][1])}<small>${esc(t.sig.slice(0,3).join(" · "))}</small><em>SET A ${setA(t)}</em></button>`; }).join("")).join("")
+ }</div></div>`,
+ notes:"Anchor slide. Every slide has a small 3x3 locator in the top-right corner; tap any square to jump to that tense. Press M to come back here."});
+
+/* ---- divider ---- */
+function divider(n,title,tag,row,notes){
+  add({cls:"div",part:n,title:`Part ${n}: ${title}`,html:`<div class="dpart">Part ${n}</div><h1>${title}</h1><p class="dtag">${tag}</p>${row!=null?`<div class="dgrid">${[0,1,2].map(r=>[0,1,2].map(c=>{ const t=T.find(x=>x.fam===r&&x.time===c); return `<span class="${r===row?"on":""}">${t.n}</span>`; }).join("")).join("")}</div>`:""}<div class="dnum">${n}</div>`,notes});
+}
+
+/* ---- foundations ---- */
+divider(1,"Foundations","<b>helper → verb form</b> the tools behind every tense",null,"Four short slides. Most Section B errors in Set A come from here, not from the tense itself.");
+
+add({part:1,band:"var(--plum)",title:"Nominal vs verbal",html:head("Foundations","Verbal or <em>nominal</em>?","Every tense has two patterns. First ask: is there a main verb?")+`<div class="body">
+ <div class="g2"><div class="card"><h3>Verbal · main verb</h3>${chips("S + verb + object")}<p class="exs" style="font-size:19px">I [play] basketball.<br>She [writes] a letter.</p></div>
+ <div class="card"><h3>Nominal · only to be</h3>${chips("S + to be + complement")}<p class="exs" style="font-size:19px">I {am} a student.<br>They {were} tired.</p></div></div>
+ <div class="sx"><table class="tbl"><thead><tr><th></th><th>Past</th><th>Present</th><th>Future</th></tr></thead><tbody>
+ <tr><td><b>Verbal</b></td><td>${ex("She [worked] hard.")}</td><td>${ex("She [works] hard.")}</td><td>${ex("She {will} [work] hard.")}</td></tr>
+ <tr><td><b>Nominal</b></td><td>${ex("She {was} tired.")}</td><td>${ex("She {is} tired.")}</td><td>${ex("She {will be} tired.")}</td></tr>
+ <tr><td><b>Set A</b></td><td>—</td><td>—</td><td>${ex("#14: We {have} [been] friends … (be → been)")}</td></tr></tbody></table></div></div>`.replace(/<p class="exs" style="font-size:19px">([^<]*(?:<br>[^<]*)*)<\/p>/g,(m,g)=>`<p class="exs" style="font-size:19px">${g.split("<br>").map(ex).join("<br>")}</p>`),
+ notes:"Quick test: say sentences aloud, the class shouts VERBAL or NOMINAL. 'He is a welder.' 'He welds the frame.' 'We were late.' 'We came late.'"});
+
+const AUXS=[["I","1"],["We","p"],["My brother","3"],["That museum","3"],["The operators","p"],["Bu Maria","3"],["Andi and Budi","p"],["The engine","3"],["The welders","p"],["Rudi","3"]];
+const AUXF={"1":["am","was","do","have"],"p":["are","were","do","have"],"3":["is","was","does","has"]};
+add({part:1,band:"var(--plum)",title:"The subject decides the helper",html:head("Foundations","The subject decides <em>the helper</em>","All subjects come from Set A. Guess first, then tap a row.")+`<div class="body"><div class="g2" style="grid-template-columns:1.6fr 1fr;align-items:start">
+ <div><table class="tbl auxt" id="auxt"><thead><tr><th>Subject</th><th>am/is/are</th><th>was/were</th><th>do/does</th><th>have/has</th></tr></thead><tbody>${
+  AUXS.map(([s,k])=>`<tr><td>${s}</td>${AUXF[k].map(a=>`<td class="h"><span class="a">${a}</span></td>`).join("")}</tr>`).join("")}</tbody></table>
+  <div class="ctrls" style="margin-top:10px"><button class="btn" id="auxAll">Buka semua</button><button class="btn" id="auxHide">Tutup semua</button></div></div>
+ <div style="display:flex;flex-direction:column;gap:12px">
+  <div class="card"><h3>I</h3><p style="font:700 20px var(--mono);margin:0" class="a">am · was · do · have</p></div>
+  <div class="card" style="border-color:var(--red)"><h3>he / she / it · one thing</h3><p style="font:700 20px var(--mono);margin:0" class="a">is · was · does · has</p></div>
+  <div class="card"><h3>you / we / they · many</h3><p style="font:700 20px var(--mono);margin:0" class="a">are · were · do · have</p></div></div></div></div>`,
+ notes:"Trick: if the subject can be replaced by HE, SHE or IT, it takes is / was / does / has. 'That museum' = it. 'Andi and Budi' = they."});
+
+add({part:1,band:"var(--plum)",title:"The helper decides the verb form",html:head("Foundations","The helper decides <em>the verb form</em>","Find the helper first. It tells you exactly which form comes next.")+`<div class="body">
+ <div class="g4">
+  <div class="card vform">${chips("V1")}<p><b>work · go · eat</b></p><p>after <span class="a">do · does · did</span><br>after <span class="a">will · going to</span><br>Simple Present</p></div>
+  <div class="card vform">${chips("V2")}<p><b>worked · went · rode</b></p><p>Simple Past <b>positive</b><br>no helper before it</p></div>
+  <div class="card vform" style="border-color:var(--red)">${chips("V3")}<p><b>worked · gone · ridden</b></p><p>after <span class="a">have · has · had</span><br>after <span class="a">will have</span></p></div>
+  <div class="card vform">${chips("V-ing")}<p><b>working · going · taking</b></p><p>after <span class="a">am · is · are</span><br>after <span class="a">was · were</span><br>after <span class="a">will be</span></p></div></div>
+ <div class="sx"><table class="tbl"><thead><tr><th>Set A error</th><th>Helper</th><th>Needs</th><th>Correct</th></tr></thead><tbody>
+  <tr><td>#27 has never <span class="x">rode</span></td><td class="a">has</td><td>V3</td><td class="okt">has never ridden</td></tr>
+  <tr><td>#29 had already <span class="x">go</span></td><td class="a">had</td><td>V3</td><td class="okt">had already gone</td></tr>
+  <tr><td>#26 will still be <span class="x">take</span></td><td class="a">be</td><td>V-ing</td><td class="okt">will still be taking</td></tr></tbody></table></div></div>`,
+ notes:"Write on the board and leave it there all lesson: did → V1 · be → V-ing · have/has/had → V3. Three Set A Section B items are solved by this rule alone."});
+
+add({part:1,band:"var(--plum)",title:"Spelling: -s, -ed, -ing",html:head("Foundations","Spelling: <em>-s, -ed, -ing</em>","Vowels (a, e, i, o, u) and consonants decide the ending.")+`<div class="body"><div class="g3">
+ <div class="card"><h3>-s / -es · he, she, it</h3><div class="sp"><span>most verbs: + s</span><b>work → works</b></div><div class="sp"><span>-s -sh -ch -x -o</span><b>watch → watches</b></div><div class="sp"><span></span><b>go → goes</b></div><div class="sp"><span>consonant + y</span><b>study → studies</b></div><div class="sp"><span>vowel + y</span><b>play → plays</b></div><div class="sp"><span>special</span><b>have → has</b></div></div>
+ <div class="card"><h3>-ed · regular V2 = V3</h3><div class="sp"><span>most verbs: + ed</span><b>clean → cleaned</b></div><div class="sp"><span>ends in -e: + d</span><b>close → closed</b></div><div class="sp"><span>consonant + y</span><b>cry → cried</b></div><div class="sp"><span>vowel + y</span><b>stay → stayed</b></div><div class="sp"><span>short, 1 vowel</span><b>stop → stopped</b></div><div class="sp"><span></span><b>plan → planned</b></div></div>
+ <div class="card"><h3>-ing</h3><div class="sp"><span>most verbs: + ing</span><b>wait → waiting</b></div><div class="sp"><span>ends in -e: drop e</span><b>take → taking</b></div><div class="sp"><span></span><b>calibrate → calibrating</b></div><div class="sp"><span>short, 1 vowel</span><b>run → running</b></div><div class="sp"><span>-ie → ying</span><b>lie → lying</b></div><div class="sp"><span>-y stays</span><b>study → studying</b></div></div></div>
+ <div class="warn">Set A checks spelling too: #3 <b>running</b> (double n), #4 <b>calibrating</b> (drop e), #36 <b>closes</b>.</div></div>`,
+ notes:"Oral drill: say a verb, students spell the -s, -ed and -ing forms. Try: fix, carry, swim, write, enjoy, ride."});
+
+const IRR=[["be","was/were","been"],["go","went","gone"],["eat","ate","eaten"],["do","did","done"],["have","had","had"],["come","came","come"],["see","saw","seen"],["take","took","taken"],["give","gave","given"],["write","wrote","written"],
+ ["ride","rode","ridden"],["drive","drove","driven"],["break","broke","broken"],["speak","spoke","spoken"],["know","knew","known"],["leave","left","left"],["make","made","made"],["buy","bought","bought"],["think","thought","thought"],["teach","taught","taught"],
+ ["keep","kept","kept"],["meet","met","met"],["find","found","found"],["tell","told","told"],["sleep","slept","slept"],["cut","cut","cut"],["put","put","put"],["read","read","read"],["drink","drank","drunk"],["begin","began","begun"]];
+add({id:"s-irr",part:1,band:"var(--plum)",title:"Irregular verbs",html:head("Foundations","Irregular verbs: <em>V1 – V2 – V3</em>","Regular: V1 + ed = V2 = V3. Irregular: memorise. Set A uses ride, be, leave, go, drive.")+`<div class="body" style="gap:10px">
+ <div class="irr" id="irr">${[IRR.slice(0,10),IRR.slice(10,20),IRR.slice(20)].map(set=>`<table class="tbl"><thead><tr><th>V1</th><th>V2</th><th>V3</th></tr></thead><tbody>${set.map(r=>`<tr><td>${r[0]}</td><td class="v2"><span>${r[1]}</span></td><td class="v3"><span>${r[2]}</span></td></tr>`).join("")}</tbody></table>`).join("")}</div>
+ <div class="ctrls"><button class="btn primary" id="hideV3">Tutup kolom V3</button><button class="btn" id="hideV2">Tutup kolom V2</button><span class="small">Klik sel tertutup untuk membuka. Daftar lengkap: Handout V3.</span></div></div>`,
+ notes:"Close V3, point at students to say the missing form. Then close V2. Link to Handout V3 families: back to V1 (come), -ought (bought), i_e → -iven/-idden (driven, ridden)."});
+
+/* ---- tense slides ---- */
+const tenseSlides=fam=>T.forEach((t,i)=>{ if(t.fam!==fam) return;
+  const part=fam+2, band=BAND[fam], kick=`${pad(i+1)} · ${FAM[t.fam]} · ${TIME[t.time]}`;
+  add({id:"s-"+t.id,part,band,title:t.n,html:head(kick,t.title,t.idea,locator(i))+`<div class="body">
+   <div class="tgrid"><div class="fcard">${t.f.map(r=>`<div class="frow"><span class="sgn">${r[0]}</span><div>${chips(r[1])}<div class="exs">${ex(r[2])}</div></div></div>`).join("")}${t.alt?`<div class="alt"><span class="tagp">${t.alt[0]}</span><span>${ex(t.alt[1])}</span></div>`:""}</div>
+   <div class="rcol"><div data-tl="${t.id}"></div><div class="uses">${t.uses.map(u=>`<div><b>${u[0]}</b><span>${ex(u[1])}</span></div>`).join("")}</div></div></div>
+   <div class="sigs"><b>Signals</b>${t.sig.map(s=>`<span>${esc(s)}</span>`).join("")}</div>
+   <div class="warn"><span>${t.warn}</span></div></div>`,notes:t.notes});
+  const u=t.uas;
+  add({id:"u-"+t.id,part,band,title:t.n+" · Set A",timer:5,html:head(`${pad(i+1)} · ${t.n} · Latihan UAS`,`${t.n} <em>in Set A</em>`,`Items ${u.a.map(a=>"#"+a[0]).join(" and ")} (Section A), #${u.b[0]} (Section B), plus one more like them.`,locator(i))+`<div class="body">
+   <div class="ugrid"><div class="ucol"><div class="slab"><b>A</b>Lengkapi · ketuk untuk jawaban</div>
+    ${u.a.map(a=>`<div class="qc"><span class="no">#${a[0]}</span>${gapq(a[1],a[2])}<span class="tap">ketuk untuk membuka</span><div class="why">${esc(a[3])}</div></div>`).join("")}
+    <button class="rst" data-reset>↺ Ulangi slide ini</button></div>
+   <div class="ucol"><div class="slab"><b>B</b>Cari kesalahan · No. ${u.b[0]}</div>
+    <div class="errbox" data-w="${u.b[2]}" data-fix="${esc(u.b[3])}"><div class="esent">${segs(u.b[1])}</div><div class="efb"></div></div>
+    <div class="slab"><b>+</b>Soal serupa</div>
+    <div class="mc" data-a="${u.t.a}" data-w="${esc(u.t.w)}"><div class="mcq">${gapq(u.t.q)}</div><div class="opts">${u.t.p.map((o,k)=>`<button data-i="${k}"><b>${"ABCD"[k]}</b>${esc(o)}</button>`).join("")}</div><div class="mfb"></div></div></div></div></div>`,
+   notes:`Answers: #${u.a[0][0]} ${u.a[0][2]} · #${u.a[1][0]} ${u.a[1][2]} · #${u.b[0]} ${u.b[2]} → ${u.b[3]} · similar item: ${"ABCD"[u.t.a]} (${u.t.p[u.t.a]}). Ask 'What is the time word?' before revealing each answer.`});
+});
+
+divider(2,"Simple Tenses","<b>V1 · V2 · will + V1</b> a fact, a whole action, a plan",0,"Simple Present, Simple Past, Simple Future. Each tense has a concept slide followed by its Set A slide.");
+tenseSlides(0);
+divider(3,"Continuous Tenses","<b>be + V-ing</b> in progress at a moment",1,"All three share be + V-ing. Only BE changes: am/is/are, was/were, will be. STILL is the big clue in Set A.");
+tenseSlides(1);
+divider(4,"Perfect Tenses","<b>have / had / will have + V3</b> finished before a moment",2,"All three need V3. If V3 is weak, go back to the irregular verbs slide first.");
+const at=S.length; tenseSlides(2);
+/* insert comparison after Present Perfect pair (concept + practice) */
+S.splice(at+2,0,{part:4,band:BAND[2],title:"Present Perfect vs Simple Past",html:head("Perfect · compare","Present Perfect or <em>Simple Past</em>?","The most tested contrast of the semester. The time word decides.",locator(6))+`<div class="body">
+ <div class="sx"><table class="tbl"><thead><tr><th></th><th>Present Perfect</th><th>Simple Past</th></tr></thead><tbody>
+  <tr><td><b>Formula</b></td><td>${chips("have / has + V3")}</td><td>${chips("V2")}</td></tr>
+  <tr><td><b>Time</b></td><td>No exact time</td><td>Exact, finished time</td></tr>
+  <tr><td><b>Signals</b></td><td>just, already, yet, ever, never, since, for</td><td>yesterday, last …, … ago, at 11 (finished)</td></tr>
+  <tr><td><b>Set A</b></td><td>${ex("#6 She {has} just [left]. · #14 We {have} [been] friends since …")}</td><td>${ex("#10 Last Saturday we [rode] … · #33 He [finished] it at 11.")}</td></tr></tbody></table></div>
+ <div class="warn"><span><b>Rule:</b> see yesterday, last, ago or a finished clock time? Simple Past. Always. That is why #22 “have visited … last night” is wrong.</span></div></div>`,
+ notes:"Write the rule in large letters on the board. It handles nearly every exam item on this contrast."});
+add({part:4,band:"var(--red)",title:"AT, BY, STILL, ALREADY",html:head("Four words that decide","AT, BY, <em>STILL</em>, ALREADY","Four small words that choose between continuous and perfect.",locator(null,null).replace(/class="on"/g,'class=""'))+`<div class="body"><div class="g2">
+ <div class="box"><h4>AT A TIME</h4><div class="t">Happening → continuous</div><p>${ex("#40 I {will} still {be} [washing] my motorcycle at 4.")}</p></div>
+ <div class="box r"><h4>BY A TIME</h4><div class="t">Finished → perfect</div><p>${ex("#34 By 1 o'clock he {will have} [cleaned] it.")}</p></div>
+ <div class="box"><h4>STILL</h4><div class="t">Always continuous</div><p>${ex("#4 {were} still [calibrating] · #7 {will} still {be} [repairing]")}</p></div>
+ <div class="box r"><h4>ALREADY + BY THE TIME</h4><div class="t">Past → had · Future → will have</div><p>${ex("#5 By the time the inspector arrived, we {had} already [cleaned] the machines.")}</p></div></div></div>`,
+ notes:"Write two lines on the board: AT = happening. BY = finished. These decide #7, #8, #34 and #40."});
+
+/* ---- exam strategy ---- */
+divider(5,"Exam Strategy","<b>time word → helper → form</b> how to answer Set A",null,"How to attack Section B (error recognition) and Section C (dialogues), then a rapid-fire round with all Section A items.");
+
+add({part:5,band:"var(--red)",title:"Section B strategy",html:head("Strategy · Section B","Four parts, one error, <em>always a verb</em>","Every Section B item in Set A is a verb problem.")+`<div class="body">
+ <div class="g3"><div class="card"><h3>Step 1</h3><p style="font-size:17px;margin:0">Find the <b>time word</b>. It is never underlined, so it is never the error. It is your evidence.</p></div>
+ <div class="card"><h3>Step 2</h3><p style="font-size:17px;margin:0">Look only at the underlined parts with a <b>verb</b>. Nouns and prepositions are never the answer.</p></div>
+ <div class="card"><h3>Step 3</h3><p style="font-size:17px;margin:0">Does the verb match the time word? Is the <b>form</b> right after the helper?</p></div></div>
+ <div class="sx"><table class="tbl"><thead><tr><th>Error type</th><th>Set A items</th><th>Fix</th></tr></thead><tbody>
+  <tr><td>Missing -s with he / she / it</td><td>#21 My father <span class="x">work</span></td><td class="okt">works</td></tr>
+  <tr><td>Wrong tense for the time word</td><td>#22 <span class="x">have visited</span> … last night · #24 Look! … <span class="x">cries</span></td><td class="okt">visited · is crying</td></tr>
+  <tr><td>Missing helper</td><td>#23 the team <span class="x">win</span> · #25 Andi and Budi <span class="x">still eat</span></td><td class="okt">will win · were still eating</td></tr>
+  <tr><td>Wrong form after the helper</td><td>#26 be <span class="x">take</span> · #27 has <span class="x">rode</span> · #29 had <span class="x">go</span> · #30 will <span class="x">has</span></td><td class="okt">taking · ridden · gone · have</td></tr></tbody></table></div></div>`,
+ notes:"Ask students to classify each error before fixing it. Classification is faster than guessing."});
+
+add({part:5,band:"var(--red)",title:"Section C dialogues",html:head("Strategy · Section C","The dialogue gives you <em>the time word</em>","The clue is often in the OTHER speaker's line. Read the whole dialogue first. Tap a line to reveal the answer.")+`<div class="body dlg"><div class="g3">${
+  DLG.map(([name,rows])=>`<div class="card"><h3>${name}</h3>${rows.map(r=>`<div class="dl"><span class="no">#${r[0]}</span><span>${r[1]}</span><span class="dans">${r[2]}</span></div>`).join("")}</div>`).join("")}</div>
+ <div class="ctrls"><button class="btn" id="dlAll">Buka semua</button><button class="btn" id="dlHide">Tutup semua</button></div></div>`,
+ notes:"Before revealing, ask: which word decided it? still → continuous, yet → present perfect, at 11 → simple past, by → future perfect."});
+
+add({id:"s-quiz",part:5,band:"var(--red)",title:"Rapid-fire: Section A",html:head("Practice · Section A","Rapid-fire: <em>all Set A items</em>","One item at a time. Class names the tense first, then the answer.")+`<div class="body"><div class="rq">
+ <div class="rqm"><span id="rqN"></span><span class="rtag" id="rqTag"></span></div>
+ <div class="rqq" id="rqQ"></div><div class="rqa" id="rqA"></div>
+ <div class="ctrls"><button class="btn" id="rqT">Tense apa?</button><button class="btn" id="rqS">Tampilkan jawaban</button><button class="btn primary" id="rqNext">Berikutnya →</button><button class="btn" id="rqShuf">Acak ulang</button></div></div></div>`,
+ notes:"Play in teams: each team names the tense, then gives the answer. One point each."});
+
+add({part:5,band:"var(--red)",title:"Two checks",html:head("Keep this page","Two checks <em>before every answer</em>","")+`<div class="body"><div class="g2">
+ <div class="box r"><h4>CHECK 1</h4><div class="t">What is the time word?</div><p>yesterday / ago / last → <b>V2</b><br>every day / always → <b>V1 (-s)</b><br>Look! / now → <b>am/is/are + V-ing</b><br>still + past time → <b>was/were + V-ing</b><br>still + future time → <b>will be + V-ing</b></p></div>
+ <div class="box"><h4>CHECK 2</h4><div class="t">Is it finished at that moment?</div><p>just / yet / since / never → <b>have/has + V3</b><br>by the time + past + already → <b>had + V3</b><br>by + future deadline → <b>will have + V3</b><br>AT = happening · <b>BY = finished</b></p></div></div>
+ <div class="card" style="text-align:center;font:700 19px var(--mono);color:var(--plum-ink)">Then check the form: did → V1 · be → V-ing · have / has / had → V3</div></div>`,
+ notes:"Students photograph this slide. It is their one-page revision sheet."});
+
+add({cls:"div",part:5,title:"Ready",html:`<div class="dpart">Bahasa Inggris · Kelas X</div><h1>Ready for the <em style="color:#FFB3BD">assessment</em>.</h1><p class="dtag">Find the time word. Find the helper. Check the form.</p>
+ <div class="dgrid">${[0,1,2].map(r=>[0,1,2].map(c=>{ const t=T.find(x=>x.fam===r&&x.time===c); return `<span class="on">${esc(t.f[0][1].replace("S + ",""))}</span>`; }).join("")).join("")}</div>
+ <p class="dtag" style="font-size:17px;margin-top:30px">Hari ke-2 · Selasa, 24 November 2026 · Sesi 1 · 10.00–11.00</p><div class="dnum">9</div>`,
+ notes:"Close by having the class say the nine formulas aloud, row by row. Check the exam time against the latest schedule before showing it."});
+
+/* =====================================================================
+   RENDER
+   ===================================================================== */
+const stage=$("#stage"), N=S.length;
+stage.innerHTML=S.map((s,i)=>`<section class="sl ${s.cls||""}" ${s.id?`id="${s.id}"`:""} data-i="${i}" ${s.timer?`data-timer="${s.timer}"`:""} style="--band:${s.band||"var(--red)"}">${s.html}${s.cls?"":`<div class="ft"><span>SMK Katolik St. Mikael Surakarta</span><span>${PARTS[s.part]}</span><span>${pad(i+1)} / ${pad(N)}</span></div>`}<aside class="notes">${esc(s.notes||"")}</aside></section>`).join("");
+const SL=$$(".sl");
+$("#prog").innerHTML=S.map((s,i)=>`<i data-i="${i}" class="${i>0&&s.part!==S[i-1].part?"gapl":""}" title="${i+1} · ${esc(s.title)}"></i>`).join("");
+
+/* =====================================================================
+   INTERACTIONS
+   ===================================================================== */
+document.addEventListener("click",e=>{
+  const g=e.target.closest("[data-go]"); if(g){ goId(g.dataset.go); return; }
+  const qc=e.target.closest(".qc"); if(qc){ qc.classList.toggle("open"); return; }
+  const sg=e.target.closest(".seg");
+  if(sg){ const box=sg.closest(".errbox"); if(box.dataset.done) return; const fb=$(".efb",box);
+    if(sg.dataset.l===box.dataset.w){ sg.classList.add("ok"); box.dataset.done="1"; fb.innerHTML=`<span class="okt">✓ ${sg.dataset.l} → ${box.dataset.fix}</span>`; }
+    else { sg.classList.add("no"); fb.innerHTML=`<span class="a">✗ Bukan itu.</span> Bagian mana yang kata kerjanya tidak cocok dengan keterangan waktu?`; }
+    return; }
+  const ob=e.target.closest(".mc .opts button");
+  if(ob){ const mc=ob.closest(".mc"); if(mc.dataset.done) return; mc.dataset.done="1"; const a=+mc.dataset.a, ok=+ob.dataset.i===a;
+    $$(".opts button",mc).forEach(b=>{ b.disabled=true; if(+b.dataset.i===a) b.classList.add("ok"); }); if(!ok) ob.classList.add("no");
+    $(".mfb",mc).innerHTML=(ok?'<b class="okt">Benar.</b> ':'<b class="a">Belum tepat.</b> ')+mc.dataset.w; return; }
+  const rs=e.target.closest("[data-reset]");
+  if(rs){ const sl=rs.closest(".sl");
+    $$(".qc",sl).forEach(q=>q.classList.remove("open"));
+    $$(".errbox",sl).forEach(b=>{ delete b.dataset.done; $$(".seg",b).forEach(x=>x.classList.remove("ok","no")); $(".efb",b).innerHTML=""; });
+    $$(".mc",sl).forEach(m=>{ delete m.dataset.done; $$(".opts button",m).forEach(x=>{ x.disabled=false; x.classList.remove("ok","no"); }); $(".mfb",m).innerHTML=""; });
+    return; }
+  const dl=e.target.closest(".dl"); if(dl){ dl.classList.toggle("open"); return; }
+  const tr=e.target.closest("#auxt tbody tr"); if(tr){ $$("td.h",tr).forEach(td=>td.classList.remove("h")); return; }
+  const it=e.target.closest("#irr td.v2,#irr td.v3"); if(it){ it.classList.add("shown"); return; }
+});
+$("#auxAll").onclick=()=>$$("#auxt tbody td:not(:first-child)").forEach(td=>td.classList.remove("h"));
+$("#auxHide").onclick=()=>$$("#auxt tbody td:not(:first-child)").forEach(td=>td.classList.add("h"));
+$("#dlAll").onclick=()=>$$(".dl").forEach(d=>d.classList.add("open"));
+$("#dlHide").onclick=()=>$$(".dl").forEach(d=>d.classList.remove("open"));
+const irrSl=$("#s-irr");
+function hideCol(cls,btn,lab){ const on=irrSl.classList.toggle(cls); $$(".shown",irrSl).forEach(td=>td.classList.remove("shown")); btn.textContent=on?lab[1]:lab[0]; }
+$("#hideV3").onclick=e=>hideCol("hide-v3",e.currentTarget,["Tutup kolom V3","Buka kolom V3"]);
+$("#hideV2").onclick=e=>hideCol("hide-v2",e.currentTarget,["Tutup kolom V2","Buka kolom V2"]);
+
+/* rapid-fire */
+const POOL=T.flatMap(t=>t.uas.a.map(a=>({n:a[0],q:a[1],ans:a[2],why:a[3],tense:t.n}))).sort((x,y)=>x.n-y.n);
+let rq=POOL.slice(), ri=0;
+function rqShow(){
+  const it=rq[ri];
+  $("#rqN").textContent=`Soal ${ri+1} / ${rq.length} · Set A #${it.n}`;
+  $("#rqTag").textContent=it.tense; $("#rqTag").classList.remove("show");
+  $("#rqQ").innerHTML=gapq(it.q,it.ans); $("#rqA").textContent="";
+}
+$("#rqT").onclick=()=>$("#rqTag").classList.add("show");
+$("#rqS").onclick=()=>{ $("#rqQ .gap")&&$("#rqQ").querySelector(".gap span").style.setProperty("visibility","visible"); $("#rqQ .gap span").style.color="var(--ok)"; $("#rqTag").classList.add("show"); $("#rqA").textContent=rq[ri].why; };
+$("#rqNext").onclick=()=>{ ri=(ri+1)%rq.length; rqShow(); };
+$("#rqShuf").onclick=()=>{ rq=POOL.slice().sort(()=>Math.random()-.5); ri=0; rqShow(); };
+rqShow();
+
+/* =====================================================================
+   NAVIGATION
+   ===================================================================== */
+let cur=0;
+function go(n){
+  n=Math.max(0,Math.min(N-1,n));
+  SL[cur].classList.remove("on"); cur=n; const s=SL[cur]; s.classList.add("on");
+  const b=$(".body",s); if(b) b.scrollTop=0;
+  renderTL(s);
+  $("#cnt").textContent=`${pad(cur+1)} / ${pad(N)}`;
+  $$("#prog i").forEach((d,i)=>{ d.classList.toggle("done",i<cur); d.classList.toggle("now",i===cur); });
+  $("#notesTitle").textContent=`SLIDE ${cur+1} · ${S[cur].title.toUpperCase()}`;
+  $("#notesText").textContent=S[cur].notes||"Tidak ada catatan untuk slide ini.";
+  try{ history.replaceState(null,"","#"+(cur+1)); }catch(e){}
+  if(document.body.classList.contains("fluid")) window.scrollTo(0,0);
+}
+function goId(id){ const i=SL.findIndex(s=>s.id===id); if(i>=0) go(i); }
+$("#bPrev").onclick=()=>go(cur-1); $("#bNext").onclick=()=>go(cur+1);
+$("#bMap").onclick=()=>goId("s-map");
+$("#prog").onclick=e=>{ const d=e.target.closest("i"); if(d) go(+d.dataset.i); };
+
+function toggleNotes(f){ const p=$("#notesPanel"), on=f!==undefined?f:!p.classList.contains("open"); p.classList.toggle("open",on); $("#bNotes").setAttribute("aria-pressed",on); }
+$("#bNotes").onclick=()=>toggleNotes(); $("#nClose").onclick=()=>toggleNotes(false);
+
+function openOverview(){
+  $("#ovGrid").innerHTML=S.map((s,i)=>`<button data-i="${i}" class="${i===cur?"cur":""}" style="--c:${s.band||"#B3122E"}"><b>${pad(i+1)} · ${PARTS[s.part]}</b><span>${esc(s.title)}</span></button>`).join("");
+  $("#overview").classList.add("open"); const c=$("#ovGrid .cur"); if(c) c.focus();
+}
+$("#ovGrid").onclick=e=>{ const b=e.target.closest("button"); if(b){ go(+b.dataset.i); $("#overview").classList.remove("open"); } };
+$("#overview").onclick=e=>{ if(e.target.id==="overview") e.currentTarget.classList.remove("open"); };
+$("#bGrid").onclick=openOverview;
+
+function toggleFull(){ try{ document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen(); }catch(e){} }
+$("#bFull").onclick=toggleFull;
+function setTheme(t){ document.documentElement.dataset.theme=t; try{ localStorage.setItem("smkmikael:sem1-theme",t); }catch(e){} renderTL(SL[cur]); }
+(function(){ let t=null; try{ t=localStorage.getItem("smkmikael:sem1-theme"); }catch(e){} document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"); })();
+const toggleTheme=()=>setTheme(document.documentElement.dataset.theme==="dark"?"light":"dark");
+$("#bTheme").onclick=toggleTheme;
+
+document.addEventListener("keydown",e=>{
+  const t=e.target; if(t.matches&&t.matches("input,textarea")) return;
+  if($("#overview").classList.contains("open")){ if(e.key==="Escape"||e.key.toLowerCase()==="g") $("#overview").classList.remove("open"); return; }
+  const k=e.key, kl=k.toLowerCase();
+  if(k==="ArrowRight"||k==="PageDown"||(k===" "&&!t.closest("button"))){ e.preventDefault(); go(cur+1); }
+  else if(k==="ArrowLeft"||k==="PageUp"){ e.preventDefault(); go(cur-1); }
+  else if(k==="Home") go(0); else if(k==="End") go(N-1);
+  else if(kl==="n") toggleNotes(); else if(kl==="g") openOverview(); else if(kl==="m") goId("s-map");
+  else if(kl==="f") toggleFull(); else if(kl==="l") toggleTheme();
+  else if(kl==="t") startTimer(+(SL[cur].dataset.timer||5));
+  else if(k==="Escape") toggleNotes(false);
+});
+let tx=null,ty=null;
+stage.addEventListener("touchstart",e=>{ if(e.target.closest("button,.qc,.seg,.dl,tr,td")){ tx=null; return; } tx=e.touches[0].clientX; ty=e.touches[0].clientY; },{passive:true});
+stage.addEventListener("touchend",e=>{ if(tx===null) return; const dx=e.changedTouches[0].clientX-tx, dy=e.changedTouches[0].clientY-ty; if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5) go(cur+(dx<0?1:-1)); tx=null; },{passive:true});
+
+/* timer */
+let tLeft=0,tInt=null,tRun=false,tSet=0; const tBox=$("#timer");
+const fmt=s=>pad(Math.floor(s/60))+":"+pad(s%60);
+function tick(){ tLeft--; $("#tTime").textContent=fmt(Math.max(0,tLeft)); if(tLeft<=0){ clearInterval(tInt); tRun=false; tBox.classList.add("done"); $("#tPause").textContent="Mulai"; beep(); } }
+function startTimer(min){ clearInterval(tInt); tSet=min*60; tLeft=tSet; tBox.classList.add("on"); tBox.classList.remove("done"); $("#tTime").textContent=fmt(tLeft); tRun=true; $("#tPause").textContent="Jeda"; tInt=setInterval(tick,1000); }
+$("#tPause").onclick=()=>{ if(tLeft<=0){ startTimer(tSet/60); return; } if(tRun){ clearInterval(tInt); tRun=false; $("#tPause").textContent="Lanjut"; } else { tInt=setInterval(tick,1000); tRun=true; $("#tPause").textContent="Jeda"; } };
+$("#tReset").onclick=()=>startTimer(tSet/60||5);
+$("#tClose").onclick=()=>{ clearInterval(tInt); tRun=false; tBox.classList.remove("on","done"); };
+$("#bTimer").onclick=()=>{ if(tBox.classList.contains("on")) $("#tClose").click(); else startTimer(+(SL[cur].dataset.timer||5)); };
+function beep(){ try{ const A=window.AudioContext||window.webkitAudioContext, c=new A(); [0,.35,.7].forEach(d=>{ const o=c.createOscillator(), g=c.createGain(); o.frequency.value=880; o.connect(g); g.connect(c.destination); g.gain.setValueAtTime(.0001,c.currentTime+d); g.gain.exponentialRampToValueAtTime(.3,c.currentTime+d+.02); g.gain.exponentialRampToValueAtTime(.0001,c.currentTime+d+.28); o.start(c.currentTime+d); o.stop(c.currentTime+d+.3); }); }catch(e){} }
+
+/* fit */
+function fit(){
+  const fluid=innerWidth<760&&innerHeight>innerWidth;
+  document.body.classList.toggle("fluid",fluid);
+  if(!fluid){ const v=$("#vp").getBoundingClientRect(); document.documentElement.style.setProperty("--s",Math.max(.2,Math.min((v.width-24)/1280,(v.height-20)/720))); }
+}
+addEventListener("resize",fit);
+addEventListener("hashchange",()=>{ const n=parseInt(location.hash.slice(1),10); if(!isNaN(n)&&n-1!==cur) go(n-1); });
+fit();
+SL[0].classList.add("on");
+const h0=parseInt((location.hash||"").slice(1),10);
+go(isNaN(h0)?0:h0-1);
+})();
+</script>
+</body>
+</html>
